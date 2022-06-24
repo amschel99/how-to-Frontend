@@ -1,0 +1,21 @@
+.nav{
+display:flex;
+flex-wrap: wrap;
+justify-content: space-evenly;
+align-items: center;
+height: 100px;
+width: 100vw;
+background-color: #32a866;
+color: #ffe96b;
+
+}
+.categories{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.category{
+margin-left: 10px;
+margin-right: 10px;
+
+}
