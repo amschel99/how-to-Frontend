@@ -112,3 +112,6 @@ button {
 .line {
     display: inline-block;
 }
+.input-login{
+    width:50vw
+}
