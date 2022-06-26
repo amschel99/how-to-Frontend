@@ -2,7 +2,7 @@ import React from 'react'
 
 const Main = () => {
   return (
-    <div>OOPS, NO EBOOKS TO DISPLAY</div>
+    <div>OOPS, NO Products TO DISPLAY</div>
   )
 }
 

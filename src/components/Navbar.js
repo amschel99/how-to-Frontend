@@ -1,38 +1,27 @@
 import React from 'react'
 import "./css/navbar.css"
-import {Link} from "react-router-dom"
+import logo from "./images/brand.svg"
+import cart from "./images/shopping-cart.png"
 
 const Navbar = () => {
   return (
   <nav className='nav'>
+<section>
 
-<section className='logo'>
-<h1>E-papers
-
-
-</h1>
-<span>explore ebooks, pay via M-pesa</span>
-
-  
+ <img className='logo' src={logo} alt="logo"/>
 </section>
-
-<div className='categories'>
-<section className='category'>
-
-    <select>
-       <option>All</option>
-      <option>Informational</option>
-       <option>fictional</option>
-    </select>
-
+<section>
+  <input className='input' type="text" placeholder="what are you looking for"/>
 </section>
-<section className="category">
-<Link to="/seller">  <h5>Sell Ebooks</h5></Link>
-  
-</section >
-
-</div>
-
+<section>
+  <select>
+    <option>KSH</option>
+    <option>USD</option>
+  </select>
+</section>
+<section>
+<img className='cart' src={cart} alt="shopping-cart"/>
+</section>
 
   </nav>
   )
