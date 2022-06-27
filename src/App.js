@@ -6,6 +6,7 @@ import React from 'react'
 
 import Register from "./pages/account/Register"
 import Login from "./pages/account/Login"
+import Protected from "./pages/Protected"
 const App = () => {
   return (
 
@@ -17,6 +18,15 @@ const App = () => {
 
   <Route path="account" element={<Register/>} />
     <Route path="login" element={<Login/>} />
+
+
+    <Route path="/user" element={<Protected/>}>
+      
+      <Route path="dashboard" element={<h1>Dashboard</h1>}/>
+
+
+
+    </Route>
 
 
 
