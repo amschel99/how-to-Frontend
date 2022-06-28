@@ -11,6 +11,8 @@ const EMAIL_REGEX=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
 
 const Register = () => {
+    let loading=<h1></h1>
+   
     const userRef = useRef();
     const emailRef=useRef()
     const errRef = useRef();
@@ -55,8 +57,11 @@ const Register = () => {
     }, [user, pwd, matchPwd,email])
 
     const handleSubmit = async (e) => {
+      
         e.preventDefault();
+             loading=<h1>hold on tight</h1>
         // if button enabled with JS hack
+          
         const v1 = USER_REGEX.test(user);
         const v2 = PWD_REGEX.test(pwd);
         const v3 =EMAIL_REGEX.test(email)
@@ -65,6 +70,7 @@ const Register = () => {
             return;
         }
         try {
+       
             const response = await axios.post(`http://localhost:8000/api/v1/users/register`,
                {name:user, password:pwd, email:email},
                 {
@@ -72,6 +78,10 @@ const Register = () => {
                     withCredentials: true
                 }
             );
+            if(response){
+ loading=<h1> </h1>
+            }
+         
             console.log(response?.data);
             console.log(response?.accessToken);
             console.log(JSON.stringify(response))
@@ -207,6 +217,7 @@ const Register = () => {
                         </p>
 
                         <button disabled={!validName || !validPwd || !validMatch ? true : false}>Sign Up</button>
+                       {loading}
                     </form>
                     <p>
                         Already registered?<br />

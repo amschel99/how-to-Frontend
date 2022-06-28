@@ -1,12 +1,14 @@
 import {Route, Routes} from "react-router-dom"
 import Welcome from "./pages/welcome/Welcome"
-
+import Error from "./pages/Error"
 
 import React from 'react'
 
 import Register from "./pages/account/Register"
 import Login from "./pages/account/Login"
 import Protected from "./pages/Protected"
+import Order from "./pages/Order"
+
 const App = () => {
   return (
 
@@ -20,9 +22,10 @@ const App = () => {
     <Route path="login" element={<Login/>} />
 
 
-    <Route path="/user" element={<Protected/>}>
-      
-      <Route path="dashboard" element={<h1>Dashboard</h1>}/>
+    <Route path="user" element={<Protected/>}>
+
+     
+<Route path="activity" element={<Order/>}/>
 
 
 
@@ -31,7 +34,7 @@ const App = () => {
 
 
 
-
+<Route path="*" element={<Error/>} />
  </Routes>
   )
 }
