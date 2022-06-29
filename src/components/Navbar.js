@@ -5,10 +5,14 @@ import cart from "./images/shopping-cart.png"
 import search from "./images/magnifying-glass.png"
 import account from "./images/add-friend.png"
 import {Link} from "react-router-dom"
+import {useAuth} from "../hooks/useAuth"
+
 
 
 const Navbar = () => {
-  
+
+let activity="/activity"
+
 
 
  
@@ -33,8 +37,10 @@ const Navbar = () => {
  
   </Link>
   
-
+<Link to={activity}>
 <img className='cart' src={cart} alt="shopping-cart"/>
+</Link>
+
 
 </section>
 

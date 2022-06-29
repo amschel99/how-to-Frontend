@@ -24,17 +24,32 @@ const App = () => {
 
 
 
-  <Route path="user" element={
-  
-       <Protected/>
-  
-   }>
 
-     <Route element={<PersistentLogin/>}>
-<Route path="activity" element={<Order/>}/>
-    </Route>
+
+
+
+
+
+
+   {/* we want to protect these routes */}
+
+
+
+<Route element={ <PersistentLogin> <Protected/></PersistentLogin> }>  <Route path="activity" element={
+<Order/>
+
+}/>
+
 
 </Route>
+{/*done protecting them damn routes */}
+
+
+
+
+
+
+  
   
   
 
