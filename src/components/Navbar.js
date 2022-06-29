@@ -6,7 +6,12 @@ import search from "./images/magnifying-glass.png"
 import account from "./images/add-friend.png"
 import {Link} from "react-router-dom"
 
+
 const Navbar = () => {
+  
+
+
+ 
   return (
   <nav className='nav'>
 <section>
@@ -24,10 +29,16 @@ const Navbar = () => {
   </select>
 </section>
 <section>
-  <Link to="/account"><img className='cart' src={account} alt="shopping-cart"/></Link>
+  <Link to="/account"><img className='cart' src={account} alt="shopping-cart"/>
+ 
+  </Link>
+  
 
 <img className='cart' src={cart} alt="shopping-cart"/>
+
 </section>
+
+
 
   </nav>
   )

@@ -7,6 +7,7 @@ import React from 'react'
 import Register from "./pages/account/Register"
 import Login from "./pages/account/Login"
 import Protected from "./pages/Protected"
+import PersistentLogin from "./components/PersistentLogin"
 import Order from "./pages/Order"
 
 const App = () => {
@@ -22,14 +23,20 @@ const App = () => {
     <Route path="login" element={<Login/>} />
 
 
-    <Route path="user" element={<Protected/>}>
 
-     
+  <Route path="user" element={
+  
+       <Protected/>
+  
+   }>
+
+     <Route element={<PersistentLogin/>}>
 <Route path="activity" element={<Order/>}/>
-
-
-
     </Route>
+
+</Route>
+  
+  
 
 
 

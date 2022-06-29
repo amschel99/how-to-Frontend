@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {useAuth} from './useAuth';
 
-const useRefreshToken = () => {
+const useUserName = () => {
     const { setAuth } = useAuth();
 
     const refresh = async () => {
@@ -15,9 +15,9 @@ const useRefreshToken = () => {
                 userName:response.data.userName,
                 accessToken: response.data.accessToken }
         });
-        return response.data.accessToken;
+        return response.data.userName;
     }
     return refresh;
 };
 
-export default useRefreshToken;
+export default useUserName;

@@ -1,12 +1,21 @@
 import { useState, useEffect } from "react";
 import useAxiosPrivate from "../hooks/useAxiosPrivate"
 import { useNavigate, useLocation } from "react-router-dom";
+import useLogout from "../hooks/useLogout";
 
 const Order = () => {
     const [orders, setOrders] = useState();
     const axiosPrivate = useAxiosPrivate();
     const navigate = useNavigate();
     const location = useLocation();
+     const logout= useLogout()
+
+ 
+   const signOut= async ()=>{
+    await  logout()
+ 
+    navigate("/")
+  }
 
     useEffect(() => {
         let isMounted = true;
@@ -35,6 +44,7 @@ const Order = () => {
 
     return (
         <article>
+              <button onClick={signOut}>SIGN OUT</button>
             <h2>Orders  List</h2>
             {orders?.length
                 ? (
