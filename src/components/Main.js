@@ -8,7 +8,7 @@ import "./css/Main.css"
 const Main = () => {
   
 const fetchProducts= async ()=>{
-const response= await axios.get("http://localhost:5000")
+const response= await axios.get("https://amschel-products.herokuapp.com")
 console.log(response)
 return await response.data
 }
