@@ -1,0 +1,41 @@
+.product{
+   
+   width: 20vw;
+    padding: 40px;
+   
+    height: 40vw;
+  
+
+}
+.product img{
+    width: 100%;
+    height:25vw;
+    border-radius: 2rem;
+    pointer-events: none;
+}
+
+.caraousel{
+width: 90vw;
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+ justify-content: space-around;
+}
+
+@media screen and (max-width:568px){
+.product {
+
+        width: 90vw;
+       
+margin-left: 10vw;
+        height: 100vw;
+
+
+    }
+        .product img {
+            width: 100%;
+            height: 50vw;
+            border-radius: 2rem;
+            pointer-events: none;
+        }
+}
