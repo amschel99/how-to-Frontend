@@ -71,7 +71,7 @@ const Register = () => {
         }
         try {
        
-            const response = await axios.post(`http://localhost:8000/api/v1/users/register`,
+            const response = await axios.post(`https://jyd-shoppers.herokuapp.com/api/v1/users/register`,
                {name:user, password:pwd, email:email},
                 {
                     headers: { 'Content-Type': 'application/json' },

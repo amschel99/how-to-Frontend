@@ -6,7 +6,7 @@ import { useAuth } from '../../hooks/useAuth';
 
 
 import axios from 'axios';
-const LOGIN_URL ="http://localhost:8000/api/v1/users/login"
+const LOGIN_URL ="https://jyd-shoppers.herokuapp.com/api/v1/users/login"
 
 const Login = () => {
     const { setAuth, persist, setPersist } =useAuth()
