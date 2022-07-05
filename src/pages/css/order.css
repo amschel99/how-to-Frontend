@@ -19,7 +19,7 @@ body,html{
     color:#fff;
 }
 .the-cart{
-    background-color: #fff;
+    background-color:var(--basic);
    
     width: 100vw;
   min-height: 100vh;
@@ -29,7 +29,7 @@ body,html{
     flex-direction: column;
 }
 table{
-    color:black;
+    color:#fff;
    
 }
 td{
@@ -40,7 +40,7 @@ td{
    margin-right: 10px;
 }
 button{
-    background-color: #fff;
+    background-color:var(--basic);
     border: none;
     outline: none;
     position: relative;
@@ -48,13 +48,13 @@ button{
 }
 .checkout{
     
-    background-color: dodgerblue;
+    background-color:var(--primary);
     color: #fff;
     border-radius: 0;
    
 }
 .check{
-    background-color: #fff;
+    background-color:var(--basic);
     border: none;
     outline: none;
     position: fixed;
