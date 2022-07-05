@@ -57,20 +57,20 @@ const{totalItems, totalPrice,items}=cart
             <table>
 <tr>
     <td>
-        <h6>ITEM</h6>
+        <h6 style={{color:"dodgerblue"}}>ITEM</h6>
     </td>
     <td>
-      <h6>PRICE</h6>
+      <h6  style={{color:"dodgerblue"}}>PRICE</h6>
     </td>
     <td>
-        <h6>
+        <h6  style={{color:"dodgerblue"}}>
             QUANTITY
         </h6>
         </td>
-        <td>
+        <td  style={{color:"dodgerblue"}}>
             +
         </td>
-         <td>
+         <td  style={{color:"dodgerblue"}}>
             -
         </td>
   
