@@ -1,15 +1,18 @@
 import React from 'react'
 import "./css/navbar.css"
 import logo from "./images/brand.svg"
-import cart from "./images/shopping-cart.png"
+import cartImg from "./images/shopping-cart.png"
 import search from "./images/magnifying-glass.png"
 import account from "./images/add-friend.png"
 import {Link} from "react-router-dom"
 import {useAuth} from "../hooks/useAuth"
+import { useSelector } from 'react-redux'
 
 
 
 const Navbar = () => {
+  const cart= useSelector((state)=>state.cart)
+
 
 let activity="/activity"
 
@@ -27,19 +30,28 @@ let activity="/activity"
 <img className='search'  src={search} alt="search" />
 </section>
 <section>
-  <select>
-    <option>KSH</option>
-    <option>USD</option>
-  </select>
+
+ 
 </section>
-<section>
-  <Link to="/account"><img className='cart' src={account} alt="shopping-cart"/>
+<section className='shopping-car'>
+ 
+  <p 
+  style={{
+    color:'#fff',
+    fontSize:"x-large",
+    position:'relative',
+    left:"25px",
+    top:"10px"
+  }}
+   className='item-numbers'>{cart.totalItems}</p>
+<Link to={activity} >
+<img className='cart' src={cartImg} alt="shopping-cart"/>
+
+</Link>
+
+<Link className='account' to="/account"><img className='cart account' src={account} alt="shopping-cart"/>
  
   </Link>
-  
-<Link to={activity}>
-<img className='cart' src={cart} alt="shopping-cart"/>
-</Link>
 
 
 </section>

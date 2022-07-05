@@ -4,11 +4,15 @@ flex-wrap: wrap;
 justify-content: space-between;
 align-items: center;
 
-width: 100vw;
+max-width: 100vw;
 background-color: var(--primary);
 color:var(--basic);
 
 
+}
+ section .item-numbers {
+    color:red;
+    font-size: x-large;
 }
 .input{
 background-color: #fff;
@@ -22,7 +26,7 @@ outline: none;
 }
 .cart{
     width: 50px;
-    margin-right: 20px;
+    margin-right: 100px;
 }
 .search{
     margin: 0;
@@ -40,15 +44,30 @@ outline: none;
     justify-content: space-around;
     align-items: center;
 }
+.cart{
+    margin-right: 20px;
+}
 .logo{
     width: 100px
+}
+.search{
+   
+}
+.account {
+position: relative;
+left:25px
 }
 .input{
  width: 80vw;
  margin-bottom: 10px;
  margin-top: 10px;
+
 }
+
 select{
     display: none;
 }
+}
+.shopping-car{
+    margin-right: 50px;
 }

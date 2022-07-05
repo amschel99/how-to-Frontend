@@ -10,6 +10,7 @@ import Protected from "./pages/Protected"
 import PersistentLogin from "./components/PersistentLogin"
 import Order from "./pages/Order"
 
+
 const App = () => {
   return (
 
@@ -18,9 +19,10 @@ const App = () => {
 <Route path="/" element={<Welcome/>}/>
 
 
-
+   
   <Route path="account" element={<Register/>} />
     <Route path="login" element={<Login/>} />
+
 
 
 
