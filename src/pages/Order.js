@@ -110,15 +110,15 @@ const{totalItems, totalPrice,items}=cart
 
                 <tr>
     <td>iTEM'S TOTAL PRICE</td>
-    <td>{totalPrice}</td>
+    <td>{totalPrice}$</td>
 </tr>
 <tr>
     <td>Shipping cost</td>
-    <td>10</td>
+    <td>10$</td>
 </tr>
 <tr>
     <td>TOTAL PRICE</td>
-    <td>{totalPrice+10}</td>
+    <td>{totalPrice+10}$</td>
 </tr>
 
             </table>
