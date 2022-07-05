@@ -42,13 +42,13 @@ reducer:(state, action)=>{
      state.items.push(action.payload)
  
 },
-prepare: ({name,price,image})=>{
+prepare: ({name,price})=>{
     //change the payload
     return {
         payload:{
 name,
 price,
-image
+
 
 
         }
