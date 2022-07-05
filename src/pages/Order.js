@@ -123,6 +123,7 @@ const{totalItems, totalPrice,items}=cart
 
             </table>
             <button className="checkout">PROCEED TO CHECKOUT</button>
+             <button className="chec"></button>
 
         </div>
 

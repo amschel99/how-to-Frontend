@@ -47,10 +47,16 @@ button{
     bottom: 15px;
 }
 .checkout{
-    width: 100vw;
+    
     background-color: dodgerblue;
     color: #fff;
     border-radius: 0;
+   
+}
+.check{
+    background-color: #fff;
+    border: none;
+    outline: none;
     position: fixed;
     top: 100vh;
 }
