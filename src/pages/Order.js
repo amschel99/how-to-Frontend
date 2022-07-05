@@ -69,7 +69,7 @@ const{totalItems, totalPrice,items}=cart
         <>
         <div className="nav-item">
             <h3 className="page-title">Shopping Cart</h3>
-         <button className="sign-out" onClick={signOut}>SIGN OUT</button>
+        {/*<button className="sign-out" onClick={signOut}>SIGN OUT</button> */} 
         </div>
         <div className="shopping-bag">
 
