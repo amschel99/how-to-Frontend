@@ -109,7 +109,7 @@ const{totalItems, totalPrice,items}=cart
             <table>
 
                 <tr>
-    <td>iTEM'S TOTAL PRICE</td>
+    <td>ITEM'S TOTAL PRICE</td>
     <td>{totalPrice}$</td>
 </tr>
 <tr>
