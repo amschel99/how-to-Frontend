@@ -16,10 +16,10 @@ const Main = () => {
   const dispatch= useDispatch()
 
   const addtoCart= (product)=>{
-    const{name, price}=product
+    const{name, price,image}=product
  
  
-dispatch((itemAdded({name,price})))
+dispatch((itemAdded({name,price,image})))
 
 
   }

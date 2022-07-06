@@ -47,6 +47,7 @@ const{totalItems, totalPrice,items}=cart
         }
     }, [axiosPrivate, location, navigate])
 
+
     return (
         <>
         <div className="nav-item">
@@ -78,6 +79,7 @@ const{totalItems, totalPrice,items}=cart
 {items.map((item)=>{
     return <tr>
 <td>
+    <img width="50px" src={item.image} alt="product"/>
     <h6>{item.name}</h6>
 
 </td>
