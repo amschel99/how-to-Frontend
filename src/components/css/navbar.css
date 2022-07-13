@@ -37,6 +37,14 @@ outline: none;
  
     
 }
+select{
+    color: var(--dark-light);
+    border: none;
+    outline: none;
+    background-color: var(--secondary);
+    margin: 3px;
+    width: 60px;
+}
 @media screen and (max-width:568px){
 
 .nav{
@@ -63,10 +71,11 @@ left:25px
  margin-top: 10px;
 
 }
-
 select{
-    display: none;
+    position: relative;
+    left:35vw;
 }
+
 }
 .shopping-car{
     margin-right: 50px;

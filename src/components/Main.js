@@ -14,6 +14,7 @@ const Main = () => {
   
   
 const {search}= useSelector((state)=>state.search)
+const {sort}= useSelector((state)=>state.sort)
   const dispatch= useDispatch()
 
   const addtoCart= (product)=>{
@@ -28,7 +29,9 @@ dispatch((itemAdded({name,price,image})))
 const fetchProducts= async ()=>{
 const response= await axios.get("https://jyd-shoppers.herokuapp.com/products",
 {
-  params:{name:search}
+  params:{name:search,
+  sort
+  }
 }
 )
 console.log(response.data.data)
@@ -37,7 +40,7 @@ return await response.data.data
 }
 
 
-const{isLoading, isError,data}= useQuery(["products", search],()=> fetchProducts(search))
+const{isLoading, isError,data}= useQuery(["products", search, sort],()=> fetchProducts(search, sort))
 if(isLoading){
   return <>
   <Loader/>

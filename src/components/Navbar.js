@@ -8,6 +8,7 @@ import {Link} from "react-router-dom"
 import {useAuth} from "../hooks/useAuth"
 import { useSelector,useDispatch } from 'react-redux'
 import {search} from "../feautures/search/searchSlice"
+import {sort} from "../feautures/Sort/sortSlice"
 
 
 
@@ -31,6 +32,7 @@ let activity="/activity"
  <img className='logo' src={logo} alt="logo"/>
 </section>
 <section>
+ 
   <input 
   onChange={(e)=>{
     setValue(e.target.value)
@@ -44,6 +46,25 @@ onClick={()=>{
  
 }}
 />
+ <select
+ onChange={(e)=>{
+
+ return dispatch(sort({sort:e.target.value}))
+
+
+ }}
+ >
+      <option >SORT</option>
+      <option 
+     
+      value="price" >sort from lowest to highest price</option>{/* by price*/ }
+       <option 
+       
+       value="-price">sort from highest to lowest price</option>{/* by -price*/ }
+       <option 
+       
+       value="rating">sort by rating</option>{/* by rating*/ }
+    </select>
 </section>
 <section>
 
