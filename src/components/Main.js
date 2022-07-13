@@ -1,9 +1,10 @@
 import React from 'react'
 import axios from "axios"
 import { useQuery, } from 'react-query'
-import {  useDispatch } from 'react-redux'
+import {  useDispatch, useSelector} from 'react-redux'
 import {itemAdded} from "../feautures/cart/cartSlice"
 import Loader from './Loader'
+
 
 import "./css/Main.css"
 
@@ -12,7 +13,7 @@ import "./css/Main.css"
 const Main = () => {
   
   
-
+const {search}= useSelector((state)=>state.search)
   const dispatch= useDispatch()
 
   const addtoCart= (product)=>{
@@ -25,9 +26,14 @@ dispatch((itemAdded({name,price,image})))
   }
   
 const fetchProducts= async ()=>{
-const response= await axios.get("https://amschel-products.herokuapp.com/")
+const response= await axios.get("https://jyd-shoppers.herokuapp.com/products",
+{
+  params:{name:search}
+}
+)
+console.log(response.data.data)
 
-return await response.data
+return await response.data.data
 }
 const{isLoading, isError,data}= useQuery("products", fetchProducts)
 if(isLoading){

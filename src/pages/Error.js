@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 
 const Error = () => {
   return (
-   <div>
+   <div className='bg-dark'>
     <h1 style={{color:"red"}}>PAGE NOT FOUND</h1>
  <Link to="/"><button>GO BACK HOME</button></Link>   
     
