@@ -11,7 +11,7 @@ const Order = () => {
 
     
     const cart= useSelector((state)=>state.cart)
-const{totalItems, totalPrice,items}=cart
+const{totalItems, totalPrice,items,}=cart
 
 
     const [orders, setOrders] = useState();
@@ -28,7 +28,7 @@ const{totalItems, totalPrice,items}=cart
 
         const getOrders = async () => {
             try {
-                const response = await axiosPrivate.get('/orders', {
+                const response = await axiosPrivate.post('orders',{products:items, price:totalPrice, quantity:totalItems}, {
                     signal: controller.signal
                 });
                 console.log(response.data);
@@ -45,7 +45,7 @@ const{totalItems, totalPrice,items}=cart
             isMounted = false;
             controller.abort();
         }
-    }, [axiosPrivate, location, navigate])
+    }, [axiosPrivate, location, navigate,items, totalItems, totalPrice])
 
 
     return (
