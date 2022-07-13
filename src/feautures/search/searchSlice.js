@@ -10,7 +10,8 @@ name:"Search",
 initialState,
 reducers:{
     search:(state, action)=>{
-return state.search=action.payload.search
+        const search=action.payload.search
+ state.search=search
     }
 
 }

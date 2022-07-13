@@ -14,6 +14,8 @@ import {search} from "../feautures/search/searchSlice"
 const Navbar = () => {
   const dispatch= useDispatch()
   const cart= useSelector((state)=>state.cart)
+  const searchState= useSelector((state)=>state.search)
+  const[value, setValue]=React.useState("")
 
 
 
@@ -30,9 +32,18 @@ let activity="/activity"
 </section>
 <section>
   <input 
-  onChange={(e)=>dispatch(search({search:e.target.value}))}
+  onChange={(e)=>{
+    setValue(e.target.value)
+     
+  }}
   className='input' type="text" placeholder="what are you looking for"/>
-<img className='search'  src={searchImg} alt="search" />
+<img className='search'  src={searchImg} alt="search" 
+onClick={()=>{
+   console.log(searchState.search)
+  return  dispatch(search({search:value}))
+ 
+}}
+/>
 </section>
 <section>
 

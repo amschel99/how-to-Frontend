@@ -35,7 +35,9 @@ console.log(response.data.data)
 
 return await response.data.data
 }
-const{isLoading, isError,data}= useQuery("products", fetchProducts)
+
+
+const{isLoading, isError,data}= useQuery(["products", search],()=> fetchProducts(search))
 if(isLoading){
   return <>
   <Loader/>
