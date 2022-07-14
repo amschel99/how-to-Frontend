@@ -32,7 +32,7 @@ const [user, setUser]= useState("")
                     signal: controller.signal
                 });
                 console.log(response.data);
-                isMounted && setUser(response.data);
+                isMounted && setUser(response.data.data);
             } catch (err) {
                 console.error(err +"this is really bad");
                 navigate('/login', { state: { from: location }, replace: true });
