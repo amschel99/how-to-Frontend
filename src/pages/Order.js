@@ -31,7 +31,7 @@ const [user, setUser]= useState("")
                 const response = await axiosPrivate.get('/user', {
                     signal: controller.signal
                 });
-                console.log(response.data);
+                console.log(response.data.data);
                 isMounted && setUser(response.data.data);
             } catch (err) {
                 console.error(err +"this is really bad");
