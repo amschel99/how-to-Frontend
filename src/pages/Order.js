@@ -53,7 +53,7 @@ const [user, setUser]= useState("")
     return (
         <>
         <div className="nav-item">
-            <h1>Hello {user}</h1>
+            <h6>Hello {user}  </h6>
             <h3 className="page-title">Shopping Cart</h3>
   
         </div>
