@@ -28,7 +28,7 @@ const [user, setUser]= useState("")
 
         const getOrders = async () => {
             try {
-                const response = await axiosPrivate.get('/orders', {
+                const response = await axiosPrivate.get('/user', {
                     signal: controller.signal
                 });
                 console.log(response.data);
