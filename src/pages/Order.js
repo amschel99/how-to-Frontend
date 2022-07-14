@@ -14,7 +14,7 @@ const Order = () => {
 const{totalItems, totalPrice,items,}=cart
 
 
-    const [orders, setOrders] = useState();
+ 
     const axiosPrivate = useAxiosPrivate();
     const navigate = useNavigate();
     const location = useLocation();
@@ -22,30 +22,23 @@ const{totalItems, totalPrice,items,}=cart
 
  
 
-    useEffect(() => {
-        let isMounted = true;
-        const controller = new AbortController();
 
         const getOrders = async () => {
             try {
                 const response = await axiosPrivate.post('orders',{products:items, price:totalPrice, quantity:totalItems}, {
-                    signal: controller.signal
+                  
                 });
                 console.log(response.data);
-                isMounted && setOrders(response.data);
+             
             } catch (err) {
                 console.error(err +"this is really bad");
                 navigate('/login', { state: { from: location }, replace: true });
             }
         }
 
-        getOrders();
+     
 
-        return () => {
-            isMounted = false;
-            controller.abort();
-        }
-    }, [axiosPrivate, location, navigate,items, totalItems, totalPrice])
+       
 
 
     return (
@@ -124,7 +117,9 @@ const{totalItems, totalPrice,items,}=cart
 </tr>
 
             </table>
-            <button className="checkout">PROCEED TO CHECKOUT</button>
+            <button className="checkout"
+            onClick={getOrders}
+            >PROCEED TO CHECKOUT</button>
              <button className="chec"></button>
 
         </div>
