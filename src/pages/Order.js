@@ -12,6 +12,7 @@ const Order = () => {
     
     const cart= useSelector((state)=>state.cart)
 const{totalItems, totalPrice,items,}=cart
+const[post, setPost]=useState('')
 
 
  
@@ -21,14 +22,17 @@ const{totalItems, totalPrice,items,}=cart
      
 
  
+useEffect(() => {
+        
+        const controller = new AbortController();
 
-
-        const getOrders = async () => {
+          const getOrders = async () => {
             try {
                 const response = await axiosPrivate.post('orders',{products:items, price:totalPrice, quantity:totalItems}, {
-                  
+                          signal: controller.signal
                 });
                 console.log(response.data);
+
              
             } catch (err) {
                 console.error(err +"this is really bad");
@@ -36,6 +40,15 @@ const{totalItems, totalPrice,items,}=cart
             }
         }
 
+        getOrders();
+
+        return () => {
+           
+            controller.abort();
+        }
+    }, [post])
+
+     
      
 
        
@@ -118,7 +131,7 @@ const{totalItems, totalPrice,items,}=cart
 
             </table>
             <button className="checkout"
-            onClick={getOrders}
+            onClick={setPost(true)}
             >PROCEED TO CHECKOUT</button>
              <button className="chec"></button>
 
