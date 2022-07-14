@@ -20,6 +20,21 @@ const [user, setUser]= useState("")
     const axiosPrivate = useAxiosPrivate();
     const navigate = useNavigate();
     const location = useLocation();
+
+    const makeOrder= async ()=>{
+try{
+const response= await axiosPrivate.post("/order", {products:items,price:totalPrice,quantity:totalItems},{
+                    headers: { 'Content-Type': 'application/json' },
+                    withCredentials: true
+                })
+                console.log(response.status)
+}
+catch(error){
+    console.log(error.message)
+
+}
+
+    }
      
 
   useEffect(() => {
@@ -128,6 +143,7 @@ const [user, setUser]= useState("")
 
             </table>
             <button className="checkout"
+            onClick={()=>makeOrder()}
            
             >PROCEED TO CHECKOUT</button>
              <button className="chec"></button>
