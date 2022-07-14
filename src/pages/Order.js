@@ -12,7 +12,8 @@ const Order = () => {
     
     const cart= useSelector((state)=>state.cart)
 const{totalItems, totalPrice,items,}=cart
-const[post, setPost]=useState('')
+
+const [user, setUser]= useState("")
 
 
  
@@ -21,19 +22,17 @@ const[post, setPost]=useState('')
     const location = useLocation();
      
 
- 
-useEffect(() => {
-        
+  useEffect(() => {
+        let isMounted = true;
         const controller = new AbortController();
 
-          const getOrders = async () => {
+        const getOrders = async () => {
             try {
-                const response = await axiosPrivate.post('orders',{products:items, price:totalPrice, quantity:totalItems}, {
-                          signal: controller.signal
+                const response = await axiosPrivate.get('/orders', {
+                    signal: controller.signal
                 });
                 console.log(response.data);
-
-             
+                isMounted && setUser(response.data);
             } catch (err) {
                 console.error(err +"this is really bad");
                 navigate('/login', { state: { from: location }, replace: true });
@@ -43,13 +42,10 @@ useEffect(() => {
         getOrders();
 
         return () => {
-           
+            isMounted = false;
             controller.abort();
         }
-    }, [post])
-
-     
-     
+    }, [axiosPrivate, location, navigate])
 
        
 
@@ -57,6 +53,7 @@ useEffect(() => {
     return (
         <>
         <div className="nav-item">
+            <h1>Hello {user}</h1>
             <h3 className="page-title">Shopping Cart</h3>
   
         </div>
@@ -131,7 +128,7 @@ useEffect(() => {
 
             </table>
             <button className="checkout"
-            onClick={setPost(true)}
+           
             >PROCEED TO CHECKOUT</button>
              <button className="chec"></button>
 
