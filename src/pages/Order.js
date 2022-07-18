@@ -11,7 +11,8 @@ const Order = () => {
 
     
     const cart= useSelector((state)=>state.cart)
-const{totalItems, totalPrice,items,}=cart
+const{totalItems, totalPrice,items}=cart
+
 
 const [user, setUser]= useState("")
 

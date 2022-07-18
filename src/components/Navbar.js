@@ -1,9 +1,9 @@
 import React from 'react'
-import "./css/navbar.css"
+
 import logo from "./images/brand.svg"
 import cartImg from "./images/shopping-cart.png"
 import searchImg from "./images/magnifying-glass.png"
-import account from "./images/add-friend.png"
+
 import {Link} from "react-router-dom"
 import {useAuth} from "../hooks/useAuth"
 import { useSelector,useDispatch } from 'react-redux'
@@ -26,72 +26,53 @@ let activity="/activity"
 
  
   return (
-  <nav className='nav'>
-<section>
+  <nav className="flex items-center justify-between bg-primary flex-wrap w-screen" >
+<section className='flex   lg:w-1/2 xlg:w-1/2 sm:w-screen md:w-3/4 w-screen justify-around '>
 
- <img className='logo' src={logo} alt="logo"/>
-</section>
-<section>
+ <img className='h-20' src={logo} alt="logo"/>
+ <section className='flex items-center lg:w-1/2 xlg:w-1/2 sm:w-3/4 md:w-3/4 w-3/4 '>
  
   <input 
   onChange={(e)=>{
     setValue(e.target.value)
      
   }}
-  className='input' type="text" placeholder="what are you looking for"/>
-<img className='search'  src={searchImg} alt="search" 
+  className='h-6 w-full bg-dodger  placeholder-white  outline-none border-0 text-white focus:cursor-text rounded-r-full' type="text" placeholder="search..."/>
+<img className='h-6 relative right-6'  src={searchImg} alt="search" 
 onClick={()=>{
    console.log(searchState.search)
   return  dispatch(search({search:value}))
  
 }}
 />
- <select
- onChange={(e)=>{
-
- return dispatch(sort({sort:e.target.value}))
-
-
- }}
- >
-      <option >SORT</option>
-      <option 
-     
-      value="price" >sort from lowest to highest price</option>{/* by price*/ }
-       <option 
-       
-       value="-price">sort from highest to lowest price</option>{/* by -price*/ }
-       <option 
-       
-       value="rating">sort by rating</option>{/* by rating*/ }
-    </select>
-</section>
-<section>
-
  
 </section>
-<section className='shopping-car'>
+<section className='flex mt-5 lg:w-32 xlg:w-32 md:w-22 sm:w-22 w-22  pr-10  justify-start  items-start '>
  
-  <p 
-  style={{
-    color:'#fff',
-    fontSize:"x-large",
-    position:'relative',
-    left:"25px",
-    top:"10px"
-  }}
-   className='item-numbers'>{cart.totalItems}</p>
-<Link to={activity} >
-<img className='cart' src={cartImg} alt="shopping-cart"/>
+ 
+<Link to={activity} className='flex justify-between'>
+ 
+<img className='h-10' src={cartImg} alt="shopping-cart"/>
+<p className='relative bottom-4 right-4'>{cart.totalItems}</p>
+
 
 </Link>
 
-<Link className='account' to="/account"><img className='cart account' src={account} alt="shopping-cart"/>
- 
-  </Link>
+
 
 
 </section>
+
+</section>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -100,3 +81,30 @@ onClick={()=>{
 }
 
 export default Navbar
+
+
+
+
+
+{/*
+<select
+ className=' w-1/4 lg:static xlg:static md:relative sm:relative relative sm:right-32 md:right-32 right:32 rounded-lg bg-dodger text-white text-sm lg:block none   '
+ onChange={(e)=>{
+
+ return dispatch(sort({sort:e.target.value}))
+
+
+ }}
+ >
+      <option className='text-sm text-white' >SORT</option>
+      <option 
+     
+      value="price" >sort from lowest to highest price</option>{ by price }
+       <option 
+       
+       value="-price">sort from highest to lowest price</option>{ by -price }
+       <option 
+       
+       value="rating">sort by rating</option>{/* by rating}
+    </select>
+*/}
