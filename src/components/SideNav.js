@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const SideNav = () => {
     const[open, setOpen]=useState(false)
   return (
-    <div className='flex'>
+    <div className='flex w-screen '>
         <div className={` ${open? 'lg:w-64 xlg:w-64 md:w-screen sm:w-screen w-screen' : 'w-14 bg-basic'} duration-300 p-5 pt-8 h-screen bg-dodger relative`}>
        <FontAwesomeIcon icon={faArrowCircleLeft} 
         className={`first-line border-basic-2 absolute cursor-pointer right-[-17px] top-4 w-7

@@ -19,7 +19,8 @@
 }
 
 .caraousel{
-width: 90vw;
+width:auto;
+max-width: 80vw;
  display: flex;
  flex-direction: row;
  flex-wrap: wrap;
@@ -28,7 +29,7 @@ width: 90vw;
 
 }
 
-@media screen and (max-width:568px){
+@media screen and (max-width:768px){
 .product {
 
         width: 85vw;
@@ -39,10 +40,17 @@ margin-left: 5vw;
 
     }
         .product img {
-            width: 100%;
+            width: 50%;
             height: 45vw;
             border-radius: 2rem;
             pointer-events: none;
+        }
+        .caraousel{
+         flex-direction: column;
+       
+         position: relative;
+         right: 5vw;
+         width: 70vw;
         }
 }
 

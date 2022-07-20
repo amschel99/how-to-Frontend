@@ -63,17 +63,17 @@ if(isError){
 
 
   return (
-    <div className=''>
+    <div className={`${open ?"sm:sr-only md:sr-only lg:not-sr-only xlg:not-sr-only sr-only": 'not-sr-only'}  `}>
      
 
-    <div className='caraousel '>
+    <div   className={`${open ?"sm:sr-only md:sr-only lg:not-sr-only xlg:not-sr-only sr-only": 'not-sr-only'} caraousel`}>
  
 
        {data.map((product)=>{
         return <div className='product' key={product.image} >
         
           <img  src={product.image} alt="product"/>
-          <h3 className='name'>{product.name.substring(0,20)}</h3>
+          <h3 className='name'>{product.name.substring(0,5)}</h3>
           <h2 className='price'>{product.price} $</h2>
           <button className='btn-cart' onClick={()=>addtoCart(product)}>Add To Cart</button>
        
