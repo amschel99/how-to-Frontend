@@ -63,10 +63,10 @@ if(isError){
 
 
   return (
-    <div className='fixed'>
+    <div className=''>
      
 
-    <div className='caraousel fixed'>
+    <div className='caraousel '>
  
 
        {data.map((product)=>{
