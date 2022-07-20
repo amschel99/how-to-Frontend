@@ -1,13 +1,14 @@
 import React from 'react'
 import "./welcome.css"
 import Navbar from '../../components/Navbar'
-import Main from '../../components/Main'
+import SideNav from '../../components/SideNav'
+
 
 const Welcome = () => {
   return (
     <>
     <Navbar/>
-    <Main/>
+    <SideNav/>
     
     </>
   )

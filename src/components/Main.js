@@ -4,13 +4,16 @@ import { useQuery, } from 'react-query'
 import {  useDispatch, useSelector} from 'react-redux'
 import {itemAdded} from "../feautures/cart/cartSlice"
 import Loader from './Loader'
+import { faSpinner,faSpaceShuttle,} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 
 import "./css/Main.css"
 
 
 
-const Main = () => {
+const Main = ({open}) => {
   
   
 const {search}= useSelector((state)=>state.search)
@@ -25,12 +28,13 @@ dispatch((itemAdded({name,price,image})))
 
 
   }
+  {/*https://jyd-shoppers.herokuapp.com/products */}
   
 const fetchProducts= async ()=>{
-const response= await axios.get("https://jyd-shoppers.herokuapp.com/products",
+const response= await axios.get(`https://jyd-shoppers.herokuapp.com/products`,
 {
-  params:{name:search,
-  sort
+ params:{name:search,
+ sort
   }
 }
 )
@@ -43,20 +47,26 @@ return await response.data.data
 const{isLoading, isError,data}= useQuery(["products", search, sort],()=> fetchProducts(search, sort))
 if(isLoading){
   return <>
-  <Loader/>
+  <FontAwesomeIcon icon={faSpaceShuttle} className={`${open ?"sm:sr-only md:sr-only lg:not-sr-only xlg:not-sr-only sr-only": 'not-sr-only'} w-10 text-basic`} />
+  <h5  className={`${open ?"sm:sr-only md:sr-only lg:not-sr-only xlg:not-sr-only sr-only": 'not-sr-only'}`}>Loading ... be patient</h5>
+ 
   </>
 }
 if(isError){
   return <>
 
-<h5>An error occured, our engineers are working on it</h5>
+ <h5 className={`${open && 'sr-only'}`}>An error occured, our engineers are working on it</h5>   
+
 </>
 
 }
 
 
   return (
-    <div className='caraousel'>
+    <div className='fixed'>
+     
+
+    <div className='caraousel fixed'>
  
 
        {data.map((product)=>{
@@ -70,6 +80,7 @@ if(isError){
         </div>
        })}
          
+    </div>
     </div>
 
   )
