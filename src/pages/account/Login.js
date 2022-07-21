@@ -80,7 +80,7 @@ navigate(from,{replace:true})
                         <label htmlFor="username">Email:</label>
                         <input
                         width="50px"
-                        className='input-login'
+                        className='input-login text-primary placeholder-secondary'
                             type="email"
                             id="username"
                             ref={userRef}
@@ -92,7 +92,7 @@ navigate(from,{replace:true})
 
                         <label htmlFor="password">Password:</label>
                         <input
-                         className='input-login'
+                         className='input-login text-primary placeholder-secondary'
                             type="password"
                             id="password"
                             onChange={(e) => setPwd(e.target.value)}
