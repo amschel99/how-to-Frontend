@@ -42,6 +42,7 @@ max-width: 80vw;
         width:49%;
         height:auto;
         padding:0;
+        background-color: #fff;
 
     }
 
@@ -59,8 +60,9 @@ max-width: 80vw;
    
     margin-bottom:5px;
     color: #fff;
-width: 100%;
-height: 50px;;
+width: 90%;
+height: 50px;
+
 }
 h3{
 
