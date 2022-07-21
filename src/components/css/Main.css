@@ -39,10 +39,10 @@ max-width: 80vw;
         
     }
     .product{
-        width:49%;
+        width:30%;
         height:auto;
         padding:0;
-        background-color: #fff;
+        background-color:var(--basic)
 
     }
 
@@ -62,6 +62,7 @@ max-width: 80vw;
     color: #fff;
 width: 90%;
 height: 60px;
+padding:3px;
 
 }
 h3{
