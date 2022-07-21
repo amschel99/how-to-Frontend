@@ -2,14 +2,14 @@ import React, {useState} from 'react'
 import control from "../images/arrow-back-outline.svg"
 import hoods from "../images/add.svg"
 import Main from './Main'
-import { faArrowCircleLeft, faTshirt, faHatCowboy, faPersonDress, faLaptop, faMobilePhone} from "@fortawesome/free-solid-svg-icons";
+import { faArrowCircleLeft, faTshirt, faHatCowboy, faPersonDress, faLaptop, faMobilePhone, faBars} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SideNav = () => {
     const[open, setOpen]=useState(false)
   return (
     <div className='flex w-screen '>
-        <div className={` ${open? 'lg:w-64 xlg:w-64 md:w-screen sm:w-screen w-screen' : 'w-14 bg-basic'} duration-300 p-5 pt-8 h-screen bg-dodger relative`}>
+        <div className={` ${open? 'lg:w-64 xlg:w-64 md:w-screen sm:w-screen w-screen' : 'w-14 sm:hidden md:hidden lg:block xlg:block  bg-basic hidden'} duration-300 p-5 pt-8 h-screen bg-dodger relative`}>
        <FontAwesomeIcon icon={faArrowCircleLeft} 
         className={`first-line border-basic-2 absolute cursor-pointer right-[-17px] top-4 w-7
             
@@ -35,9 +35,14 @@ const SideNav = () => {
            
         </div>
         <div className="p-7 text-2xl font-semibold flex-1 h-screen " >
+
+
         <Main open={open}/>
 
         </div>
+        <FontAwesomeIcon icon={faBars} className={`relative right-[90vw] top-2 lg:hidden xlg:hidden md:block sm:block block ${open && 'hidden'} text-dodger` }
+        onClick={()=>setOpen((prev)=>!prev)}
+        />
     </div>
   )
 }

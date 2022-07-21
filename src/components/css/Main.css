@@ -30,28 +30,7 @@ max-width: 80vw;
 }
 
 @media screen and (max-width:768px){
-.product {
 
-        width: 85vw;
-     
-margin-left: 5vw;
-        height: 400px;
-
-
-    }
-        .product img {
-            width: 50%;
-            height: 45vw;
-            border-radius: 2rem;
-            pointer-events: none;
-        }
-        .caraousel{
-         flex-direction: column;
-       
-         position: relative;
-         right: 5vw;
-         width: 70vw;
-        }
 }
 
 .btn-cart{
