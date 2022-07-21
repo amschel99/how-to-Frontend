@@ -46,7 +46,7 @@ const SideNav = () => {
   <section>
 
   <select
- className=' w-1/4 lg:static xlg:static lg:hidden sm:block md:block xlg:hidden block rounded-lg bg-dodger text-white text-sm  relative bottom-5 left-4  '
+ className=' w-1/4 lg:static xlg:static lg:hidden sm:block md:block xlg:hidden block rounded-lg bg-dodger text-white text-sm  relative bottom-5 left-4 text-sm '
  onChange={(e)=>{
 
  return dispatch(sort({sort:e.target.value}))
@@ -54,7 +54,7 @@ const SideNav = () => {
 
  }}
  >
-      <option className='text-sm text-white' >SORT</option>
+      <option className='text-sm text-white' >sort</option>
       <option 
      
       value="price" >sort from lowest to highest price</option>
