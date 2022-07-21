@@ -26,7 +26,7 @@ let activity="/activity"
 
  
   return (
-  <nav className="flex items-center justify-between bg-primary flex-wrap w-screen" >
+  <nav className="flex items-center justify-between bg-primary flex-wrap w-screen " >
 <section className='flex   lg:w-1/2 xlg:w-1/2 sm:w-screen md:w-3/4 w-screen justify-around '>
 
  <img className='h-20' src={logo} alt="logo"/>
@@ -64,6 +64,29 @@ onClick={()=>{
 </section>
 
 </section>
+<section>
+
+  <select
+ className=' w-1/4 lg:static xlg:static sm:hidden md:hidden lg:block xlg:block hidden rounded-lg bg-dodger text-white text-sm lg:block none   '
+ onChange={(e)=>{
+
+ return dispatch(sort({sort:e.target.value}))
+
+
+ }}
+ >
+      <option className='text-sm text-white' >SORT</option>
+      <option 
+     
+      value="price" >sort from lowest to highest price</option>
+       <option 
+       
+       value="-price">sort from highest to lowest price</option>
+       <option 
+       
+       value="rating">sort by rating</option>
+    </select>
+</section>
 
 
 
@@ -86,25 +109,3 @@ export default Navbar
 
 
 
-{/*
-<select
- className=' w-1/4 lg:static xlg:static md:relative sm:relative relative sm:right-32 md:right-32 right:32 rounded-lg bg-dodger text-white text-sm lg:block none   '
- onChange={(e)=>{
-
- return dispatch(sort({sort:e.target.value}))
-
-
- }}
- >
-      <option className='text-sm text-white' >SORT</option>
-      <option 
-     
-      value="price" >sort from lowest to highest price</option>{ by price }
-       <option 
-       
-       value="-price">sort from highest to lowest price</option>{ by -price }
-       <option 
-       
-       value="rating">sort by rating</option>{/* by rating}
-    </select>
-*/}
