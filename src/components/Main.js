@@ -73,8 +73,8 @@ if(isError){
         return <div className='product sm:w-full md:w-full' key={product.image} >
         
           <img  src={product.image} alt="product"/>
-          <h3 className='name text-sm'>{product.name.substring(0,5)}</h3>
-          <h2 className='price text-sm'>{product.price} $</h2>
+          <h3 className='name text-sm'>{product.name}</h3>
+          <h2 className='price text-sm'> Ksh {product.price} </h2>
           <button className='btn-cart text-sm h-1/2 sm:w-full md:w-full lg:w-5 xlg:w-5 w-full text-sm' onClick={()=>addtoCart(product)}>Add To Cart</button>
        
         </div>
