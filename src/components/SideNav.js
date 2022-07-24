@@ -14,7 +14,7 @@ const SideNav = () => {
      const dispatch= useDispatch()
 
  
-  const[value, setValue]=React.useState("")
+ 
   return (
     <div className='flex w-screen '>
         <div className={` ${open? 'lg:w-64 xlg:w-64 md:w-screen sm:w-screen w-screen ' : 'w-14 sm:hidden md:hidden lg:block xlg:block  bg-basic hidden'} duration-300 p-5 pt-8 h-screen bg-dodger relative`}>
