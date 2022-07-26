@@ -13,10 +13,12 @@ const Cart = () => {
    const dispatch= useDispatch()
   const cart= useSelector((state)=>state.cart)
   return (
-    <div className='bg-sea-400 h-20 flex justify-evenly items-center w-screen flex-wrap'>
+    <div className='bg-sea-400   z-50 h-20 flex justify-evenly  fixed items-center w-screen flex-wrap'
+   
+    >
 
 <a href="tel:+25477938563" className="flex"><FontAwesomeIcon icon={faPhone} className="cursor-pointer text-basic "/>
-<p className="mx-2 text-sm">call 0777938563</p>
+<p className="mx-2 text-xs">0777938563</p>
 </a>
 <select
  className=' w-12 bg-secondary '
