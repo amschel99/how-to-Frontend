@@ -31,7 +31,7 @@ const Navbar = () => {
     setValue(e.target.value)
      
   }}
-type="text" placeholder="search for a product" className="h-8 rounded-0 sm:w-3/4 md:w-3/4 lg:w-auto xlg:w-auto w-3/4"/>
+type="text" placeholder="search ..." className="h-8 rounded-0 sm:w-3/4 md:w-3/4 lg:w-auto xlg:w-auto w-3/4"/>
  <FontAwesomeIcon
 onClick={()=>{
  
