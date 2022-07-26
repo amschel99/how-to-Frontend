@@ -13,7 +13,7 @@ const Cart = () => {
    const dispatch= useDispatch()
   const cart= useSelector((state)=>state.cart)
   return (
-    <div className='bg-sea-400   z-50 h-20 flex justify-evenly  fixed items-center w-screen flex-wrap'
+    <div className='bg-sea-400   z-40 h-20 flex justify-evenly  fixed items-center w-screen flex-wrap'
    
     >
 
