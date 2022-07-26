@@ -69,7 +69,7 @@ if(isError){
    
    
      
-<div className='w-[100vw] flex pl-12 items-center px-2 lg:justify-center xlg:justify-center sm:justify-start md:justify-start justify-start flex-wrap  border relative top-[100px]'>
+<div className='w-[100vw] flex pl-10 items-center px-2 lg:justify-center xlg:justify-center sm:justify-start md:justify-start justify-start flex-wrap   relative top-[100px]'>
  
   {
     data.map((item)=>{
