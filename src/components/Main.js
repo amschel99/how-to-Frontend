@@ -3,13 +3,14 @@ import axios from "axios"
 import { useQuery, } from 'react-query'
 import {  useDispatch, useSelector} from 'react-redux'
 import {itemAdded} from "../feautures/cart/cartSlice"
-import Loader from './Loader'
-import { faSpinner,faSpaceShuttle,} from "@fortawesome/free-solid-svg-icons";
+
+import {faSpaceShuttle,} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Cart from "./Cart"
 
 
 
-import "./css/Main.css"
+
 
 
 
@@ -28,7 +29,7 @@ dispatch((itemAdded({name,price,image})))
 
 
   }
-  {/*https://jyd-shoppers.herokuapp.com/products */}
+
   
 const fetchProducts= async ()=>{
 const response= await axios.get(`https://jyd-shoppers.herokuapp.com/products`,
@@ -63,25 +64,37 @@ if(isError){
 
 
   return (
-    <div className={`${open ?"sm:sr-only md:sr-only lg:not-sr-only xlg:not-sr-only sr-only": 'not-sr-only'}  `}>
+    <div className='relative top-20'>
+       <Cart/>
+   
+   
      
-
-    <div   className={`${open ?"sm:sr-only md:sr-only lg:not-sr-only xlg:not-sr-only sr-only": 'not-sr-only'} caraousel`}>
+<div className='w-[90vw] flex items-start lg:justify-center xlg:justify-center sm:justify-start md:justify-start justify-start flex-wrap ml-5 '>
  
+  {
+    data.map((item)=>{
+      return <div key={item.image} className=" lg:w-[8rem] xlg:w-[8rem] sm:w-[6rem] md:w-[6rem] w-[6rem] h-[300px] flex flex-col items-center mx-3 my-5 bg-white text-primary text-center">
+        <img className='w-full h-20' src={item.image} alt="item" />
+  
+        <h5 className='h-20 '>{item.name}</h5>
+        <h6 className="h-20 ">
+         {item.price}
+        </h6>
+       <button className='w-[99%] h-[50px] text-sm text-white bg-dodger hover:text-dodger hover:bg-primary'
+        onClick={()=>addtoCart(item)}
+       >Add To Cart</button>
+    
 
-       {data.map((product)=>{
-        return <div className='product sm:w-full md:w-full' key={product.image} >
-        
-          <img  src={product.image} alt="product"/>
-          <h3 className='name text-sm'>{product.name}</h3>
-          <h2 className='price text-sm'> Ksh {product.price} </h2>
-          <button className='btn-cart text-sm h-1/2 sm:w-full md:w-full lg:w-5 xlg:w-5 w-full text-sm' onClick={()=>addtoCart(product)}>Add To Cart</button>
-       
-        </div>
-       })}
-         
-    </div>
-    </div>
+
+      </div>
+    })
+  }
+
+
+</div>
+ </div>
+    
+   
 
   )
 }

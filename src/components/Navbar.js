@@ -1,11 +1,12 @@
 import React from 'react'
 
 import logo from "./images/brand.svg"
-import cartImg from "./images/shopping-cart.png"
-import searchImg from "./images/magnifying-glass.png"
+
+import { faSearch,faTshirt,faLaptop, faStopwatch,faBook,faUmbrella,faBars,faClose,faMobilePhone}from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {Link} from "react-router-dom"
-import {useAuth} from "../hooks/useAuth"
+
 import { useSelector,useDispatch } from 'react-redux'
 import {search} from "../feautures/search/searchSlice"
 import {sort} from "../feautures/Sort/sortSlice"
@@ -20,87 +21,114 @@ const Navbar = () => {
 
 
 
-let activity="/activity"
-
-
-
- 
+  const[open,setOpen]=React.useState(false)
   return (
-  <nav className="flex items-center justify-between bg-primary flex-wrap w-screen " >
-<section className='flex   lg:w-1/2 xlg:w-1/2 sm:w-screen md:w-3/4 w-screen justify-around '>
-
- <img className='h-20' src={logo} alt="logo"/>
- <section className='flex items-center lg:w-1/2 xlg:w-1/2 sm:w-3/4 md:w-3/4 w-3/4 '>
- 
-  <input 
-  onChange={(e)=>{
+    <nav className='w-screen z-50 h-20 bg-primary flex items-center justify-evenly fixed' >
+        <div className='cursor-pointer flex items-center'>
+<img src={logo} className="lg:h-20 xlg:h-20 sm:h-12 md:h-12 h-12 cursor-pointer" alt="logo"/>
+<input 
+ onChange={(e)=>{
     setValue(e.target.value)
      
   }}
-  className='h-6 w-full bg-dodger  placeholder-white  outline-none border-0 text-white focus:cursor-text rounded-r-full' type="text" placeholder="search..."/>
-<img className='h-6 relative right-6'  src={searchImg} alt="search" 
+type="text" placeholder="search for a product" className="h-8 rounded-0"/>
+ <FontAwesomeIcon
 onClick={()=>{
-   console.log(searchState.search)
+ 
   return  dispatch(search({search:value}))
  
 }}
-/>
- 
-</section>
-<section className='flex mt-5 lg:w-32 xlg:w-32 md:w-22 sm:w-22 w-22  pr-10  justify-start  items-start '>
- 
- 
-<Link to={activity} className='flex justify-between'>
- 
-<img className='h-10' src={cartImg} alt="shopping-cart"/>
-<p className='relative bottom-4 right-4'>{cart.totalItems}</p>
+  icon={faSearch} className="text-dodger relative right-7 h-7"
+
+ />
 
 
-</Link>
+        </div>
+
+
+        <div className="sm:hidden md:hidden lg:block xlg:block hidden cursor-pointer">
+            <ul className='flex '>
+                <li className='flex text-crimson-500 hover:underline font-lato mx-4'>
+                    <FontAwesomeIcon icon={faTshirt} className=" text-sm"/>
+                    <h1 className='text-sm'>Clothes</h1>
+                </li>
+                <li className='flex text-crimson-500 hover:underline font-lato mx-4'>
+                    <FontAwesomeIcon icon={faLaptop} className=" text-sm "/>
+                    <h1 className='text-sm'>Laptops</h1>
+                </li>
+                 <li className='flex text-crimson-500 hover:underline font-lato mx-4'>
+                    <FontAwesomeIcon icon={faMobilePhone} className=" text-sm "/>
+                    <h1 className='text-sm'>Mobile Phones</h1>
+                </li>
+                 <li className='flex text-crimson-500 hover:underline font-lato mx-4'>
+                    <FontAwesomeIcon icon={faStopwatch} className=" text-sm "/>
+                    <h1 className='text-sm'>Smart Watches</h1>
+                </li>
+                
+            </ul>
+
+        </div>
 
 
 
+{ !open &&
+ <div className='lg:hidden xlg:hidden md:block sm:block block text-crimson-500 right-2 relative text-sm'>
 
-</section>
+            <FontAwesomeIcon  icon={faBars}
+           onClick={
+            ()=>setOpen((previous)=>!previous)
+           }
+            />
+        </div>
+}
+{ open &&
+ <div className='lg:hidden xlg:hidden md:block sm:block block text-crimson-500 text-sm right-2 relative'>
 
-</section>
-<section>
+            <FontAwesomeIcon  icon={faClose}
+           onClick={
+            ()=>setOpen((previous)=>!previous)
+           }
+            />
+        </div>
+}
 
-  <select
- className=' w-1/4 lg:static xlg:static sm:hidden md:hidden lg:block xlg:block hidden rounded-lg bg-dodger text-white text-sm lg:block none   '
- onChange={(e)=>{
-
- return dispatch(sort({sort:e.target.value}))
-
-
- }}
- >
-      <option className='text-sm text-white' >SORT</option>
-      <option 
-     
-      value="price" >sort from lowest to highest price</option>
-       <option 
        
-       value="-price">sort from highest to lowest price</option>
-       <option 
-       
-       value="rating">sort by rating</option>
-    </select>
-</section>
 
 
 
+        {/*SIDE BAR */}
+
+        <div  className={` ${open?"w-screen ":" w-0 h-0 sr-only"} cursor-pointer smblock md:block lg:hidden xlg:hidden w-screen block bg-primary absolute top-16    `}>
+            <ul className={` ${open?"w-full scale-2":"scale-0 w-0 h-0"}  flex flex-col justify-evenly h-[300px] items-center duration-300   `}>
+                <li className='flex text-crimson-500  font-lato mx-4'>
+                    <FontAwesomeIcon icon={faTshirt} className="mx-1 text-lg"/>
+                    <h1 className='mx-1'>Tshirts, Hoods,Caps</h1>
+                </li>
+                <li className='flex text-crimson-500  font-lato mx-4'>
+                    <FontAwesomeIcon icon={faLaptop} className=" text-lg mx-1 "/>
+                    <h1 className='mx-1'>Laptops</h1>
+                </li>
+                 <li className='flex text-crimson-500  font-lato mx-4'>
+                    <FontAwesomeIcon icon={faMobilePhone} className=" text-lg mx-1 "/>
+                    <h1 className='mx-1'>Mobile Phones</h1>
+                </li>
+                 <li className='flex text-crimson-500  font-lato mx-4'>
+                    <FontAwesomeIcon icon={faStopwatch} className=" text-lg mx-1 "/>
+                    <h1 className='mx-1'>Smart Watches</h1>
+                </li>
+                
+            </ul>
+
+        </div>
 
 
 
-
-
-
-
-
-
-  </nav>
+    </nav>
   )
+
+
+
+ 
 }
 
 export default Navbar
