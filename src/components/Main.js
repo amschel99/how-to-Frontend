@@ -69,18 +69,18 @@ if(isError){
    
    
      
-<div className='w-[90vw] flex items-start lg:justify-center xlg:justify-center sm:justify-start md:justify-start justify-start flex-wrap ml-5 relative top-[100px]'>
+<div className='w-[100vw] flex items-center px-2 lg:justify-center xlg:justify-center sm:justify-start md:justify-start justify-start flex-wrap  border relative top-[100px]'>
  
   {
     data.map((item)=>{
-      return <div key={item.image} className=" lg:w-[8rem] xlg:w-[8rem] sm:w-[4rem] md:w-[4rem] w-[4rem] h-[300px] flex flex-col items-center my-5 bg-white mx-1 text-primary text-center">
+      return <div key={item.image} className=" lg:w-[8rem] xlg:w-[8rem] sm:w-[5rem] md:w-[4rem] w-[5rem] h-36 flex flex-col items-center my-5 bg-white mx-1 text-primary text-center">
         <img className='w-full h-14' src={item.image} alt="item" />
   
-        <h5 className='h-20 '>{item.name}</h5>
-        <h6 className="h-20 ">
+        <h5 className='h-20 text-xs '>{item.name}</h5>
+        <h6 className="h-20  text-xs">
          {item.price}
         </h6>
-       <button className=' text-xs p-[1px] text-white bg-dodger hover:text-dodger hover:bg-primary'
+       <button className=' text-xs p-[1px] rounded-sm lg:w-3/4 xlg:w-3/4 sm:w-full md:w-full w-full h-20 text-white bg-dodger hover:text-dodger hover:bg-primary'
         onClick={()=>addtoCart(item)}
        >Add To Cart</button>
     

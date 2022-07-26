@@ -14,8 +14,7 @@ const Cart = () => {
   const cart= useSelector((state)=>state.cart)
   return (
     <div className='bg-sea-400   z-40 h-20 flex justify-evenly  fixed items-center w-screen flex-wrap'
-   
-    >
+>
 
 <a href="tel:+25477938563" className="flex"><FontAwesomeIcon icon={faPhone} className="cursor-pointer text-basic "/>
 <p className="mx-2 text-xs">0777938563</p>
@@ -29,7 +28,7 @@ const Cart = () => {
 
  }}
  >
-      <option className='text-sm text-white' >SORT</option>
+      <option className='text-xs text-white' >sort</option>
       <option 
      
       value="price" >sort from lowest to highest price</option>
@@ -48,7 +47,6 @@ const Cart = () => {
 
 
 </Link>
-
     </div>
   )
 }
