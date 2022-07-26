@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 import useAxiosPrivate from "../hooks/useAxiosPrivate"
 import { useNavigate, useLocation } from "react-router-dom";
+import {faPlus,faMinus,faTrash} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Navbar from "../components/Navbar"
+import logo from "../components/images/brand.svg"
+
 
 import "./css/order.css"
 import { useSelector } from "react-redux";
@@ -68,58 +73,41 @@ catch(error){
 
     return (
         <>
-        <div className="nav-item">
-            <h6>Hello {user} 👋 </h6>
-            <h6 className="page-title"> This is your Shopping Cart</h6>
-  
-        </div>
-        <div className="the-cart">
-            <table>
-<tr>
-    <td>
-        <h6 style={{color:"#180018"}}>ITEM</h6>
-    </td>
-    <td>
-      <h6  style={{color:"#180018"}}>PRICE</h6>
-    </td>
-    <td>
-        <h6  style={{color:"#180018"}}>
-            QUANTITY
-        </h6>
-        </td>
-        <td  style={{color:"#180018"}}>
-            +
-        </td>
-         <td  style={{color:"#180018"}}>
-            -
-        </td>
-  
-</tr>
-{items.map((item)=>{
-    return <tr>
-<td>
-    <img width="50px" src={item.image} alt="product"/>
-    <h6>{item.name}</h6>
+     <nav className='w-screen z-50 h-20 bg-primary flex items-center justify-evenly ' >
 
+<img src={logo} className="lg:h-20 xlg:h-20 sm:h-12 md:h-12 h-12 cursor-pointer" alt="logo"/>
+<h1>Welcome {user}</h1>
+</nav>
+        <div className="the-cart">
+            <table className="mt-4 lg:w-[70vw] xlg:w-screen sm:w-screen md:w-screen w-screen ">
+
+{items.map((item)=>{
+    return <tr className="bg-white border flex justify-evenly items-center">
+<td className="flex flex-col  items-center">
+    <img width="20px" src={item.image} alt="product"/>
+    <h6 className="text-primary text-xs">{item.name}</h6>
 </td>
-<td>
-    <h6>{item.price}</h6>
+<td className=" text-start w-4">
+    <h6 className="text-secondary text-xs">KSH {item.price}</h6>
     
 </td>
-<td>
+<td className="text-secondary bold w-4">
     {!item.quantity && <h6>1</h6>}
   {item.quantity && <h6>{item.quantity}</h6>}
     
 </td>
 <td>
-    <button>+</button>
+ <FontAwesomeIcon className="text-primary" icon={faPlus}/>   
     
 </td>
 <td>
-    <button>-</button>
+     <FontAwesomeIcon className="text-primary" icon={faMinus}/>   
     
 </td>
-
+<td className="text-crimson-300">
+     <FontAwesomeIcon className="text-primary" icon={faTrash}/>   
+    
+</td>
     </tr>
 })}
 
