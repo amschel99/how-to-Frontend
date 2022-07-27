@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import useAxiosPrivate from "../hooks/useAxiosPrivate"
 import { useNavigate, useLocation } from "react-router-dom";
-import {faPlus,faMinus,faTrash} from "@fortawesome/free-solid-svg-icons";
+import {faPlus,faMinus,faTrash,faInfoCircle} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Navbar from "../components/Navbar"
+import "../pages/account/account.css"
 import logo from "../components/images/brand.svg"
 
 
@@ -16,18 +16,39 @@ const Order = () => {
 
     
     const cart= useSelector((state)=>state.cart)
+    const PHONE_REGEX=/^(?:254|\+254|0)?((?:(?:7(?:(?:[01249][0-9])|(?:5[789])|(?:6[89])))|(?:1(?:[1][0-5])))[0-9]{6})$/
+    const [number, setNumber]=useState("")
 const{totalItems, totalPrice,items}=cart
+
+    const [errMsg, setErrMsg] = useState('');
+    const [numberFocus, setNumberFocus] = useState(false);
 
 
 const [user, setUser]= useState("")
+   const [validNumber, setValidNumber] = useState(false);
 
 
  
     const axiosPrivate = useAxiosPrivate();
     const navigate = useNavigate();
     const location = useLocation();
+       useEffect(() => {
+        setValidNumber(PHONE_REGEX.test(number));
+    }, [number])
 
-    const makeOrder= async ()=>{
+    const makeOrder= async (e)=>{
+
+        
+        e.preventDefault();
+            
+        // if button enabled with JS hack
+          
+        const v1 = PHONE_REGEX.test(number);
+    
+        if (!v1 ) {
+            setErrMsg("Invalid Entry");
+            return;
+        }
 try{
 const response= await axiosPrivate.post("/order", {products:items,price:totalPrice,quantity:totalItems},{
                     headers: { 'Content-Type': 'application/json' },
@@ -115,10 +136,10 @@ catch(error){
 
             </table>
 
-            <table>
+            <table className="bg-white text-sea-500 text-xs my-4">
 
                 <tr>
-    <td>ITEM'S TOTAL PRICE</td>
+    <td>Item's price</td>
     <td>{totalPrice}$</td>
 </tr>
 <tr>
@@ -131,7 +152,29 @@ catch(error){
 </tr>
 
             </table>
-            <button className="checkout"
+
+  <input
+                            type="number"
+                            id="number"
+                            onChange={(e) => setNumber(e.target.value)}
+                            value={number}
+                            required
+                            aria-invalid={validNumber ? "false" : "true"}
+                            aria-describedby="pwdnote"
+                            placeholder="mpesa number"
+                            onFocus={() => setNumberFocus(true)}
+                            onBlur={() => setNumber(false)}
+                             className={`text-primary placeholder-secondary`}
+                        />
+                         <p id="pwdnote" className={numberFocus && !validNumber ? "instructions" : "offscreen"}>
+                            <FontAwesomeIcon icon={faInfoCircle} />
+                         <br />
+                        Number must be a valid Safaricom number
+                        </p>
+
+            
+            <button className={`checkout disabled:opacity-25 `}
+disabled={!validNumber?true:false}
             onClick={()=>makeOrder()}
            
             >PROCEED TO CHECKOUT</button>
