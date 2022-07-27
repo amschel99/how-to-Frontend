@@ -100,7 +100,7 @@ catch(error){
 <h1>Welcome {user}</h1>
 </nav>
         <div className="the-cart">
-            <table className="mt-4 lg:w-[70vw] xlg:w-screen sm:w-screen md:w-screen w-screen ">
+            <table className="mt-4 lg:w-[70vw] xlg:w-screen sm:w-[90vw] md:w-[90vw] w-[90vw] ">
 
 {items.map((item)=>{
     return <tr className="bg-white border flex justify-evenly items-center">
@@ -136,7 +136,7 @@ catch(error){
 
             </table>
 
-            <table className="bg-white text-sea-500 text-xs my-4">
+            <table className="bg-white text-sea-500 text-xs my-4 sm:w-[70vw] md:w-[70vw] lg:w-[50vw] xlg:w-[50vw] w-[70vw]">
 
                 <tr>
     <td>Item's price</td>
