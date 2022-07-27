@@ -5,6 +5,7 @@ import {faPlus,faMinus,faTrash,faInfoCircle} from "@fortawesome/free-solid-svg-i
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../pages/account/account.css"
 import logo from "../components/images/brand.svg"
+import{Link} from "react-router-dom"
 
 
 import "./css/order.css"
@@ -95,8 +96,10 @@ catch(error){
     return (
         <>
      <nav className='w-screen z-50 h-20 bg-primary flex items-center justify-evenly ' >
-
+<Link to="/">
 <img src={logo} className="lg:h-20 xlg:h-20 sm:h-12 md:h-12 h-12 cursor-pointer" alt="logo"/>
+</Link>
+
 <h1>Welcome {user}</h1>
 </nav>
         <div className="the-cart">
@@ -117,15 +120,15 @@ catch(error){
   {item.quantity && <h6>{item.quantity}</h6>}
     
 </td>
-<td>
+<td className="cursor-pointer">
  <FontAwesomeIcon className="text-primary" icon={faPlus}/>   
     
 </td>
-<td>
+<td className="cursor-pointer">
      <FontAwesomeIcon className="text-primary" icon={faMinus}/>   
     
 </td>
-<td className="text-crimson-300">
+<td className="text-crimson-300 cursor-pointer">
      <FontAwesomeIcon className="text-primary" icon={faTrash}/>   
     
 </td>
