@@ -20,6 +20,7 @@ const Order = () => {
     const PHONE_REGEX=/^(?:254|\+254|0)?((?:(?:7(?:(?:[01249][0-9])|(?:5[789])|(?:6[89])))|(?:1(?:[1][0-5])))[0-9]{6})$/
     const [number, setNumber]=useState("")
 const{totalItems, totalPrice,items}=cart
+const [loader, setLoader]=useState("")
 
     const [errMsg, setErrMsg] = useState('');
     const [numberFocus, setNumberFocus] = useState(false);
@@ -37,10 +38,9 @@ const [user, setUser]= useState("")
         setValidNumber(PHONE_REGEX.test(number));
     }, [number])
 
-    const makeOrder= async (e)=>{
+    const makeOrder= async ()=>{
 
-        
-        e.preventDefault();
+     
             
         // if button enabled with JS hack
           
@@ -50,15 +50,19 @@ const [user, setUser]= useState("")
             setErrMsg("Invalid Entry");
             return;
         }
+        
 try{
+ // setLoader("check your phone for an Mpesa prompt")
+
 const response= await axiosPrivate.post("/order", {products:items,price:totalPrice,quantity:totalItems},{
                     headers: { 'Content-Type': 'application/json' },
                     withCredentials: true
                 })
                 console.log(response.status)
+              //setLoader("Order succesful...")
 }
 catch(error){
-    console.log(error.message)
+    console.log(error.message +error.status)
 
 }
 
@@ -157,16 +161,16 @@ catch(error){
             </table>
 
   <input
-                            type="number"
+                            type="text"
                             id="number"
                             onChange={(e) => setNumber(e.target.value)}
-                            value={number}
+                         
                             required
-                            aria-invalid={validNumber ? "false" : "true"}
+                            //aria-invalid={validNumber ? "false" : "true"}
                             aria-describedby="pwdnote"
                             placeholder="mpesa number"
                             onFocus={() => setNumberFocus(true)}
-                            onBlur={() => setNumber(false)}
+                            onBlur={() => setNumberFocus(false)}
                              className={`text-primary placeholder-secondary`}
                         />
                          <p id="pwdnote" className={numberFocus && !validNumber ? "instructions" : "offscreen"}>
@@ -181,6 +185,7 @@ disabled={!validNumber?true:false}
             onClick={()=>makeOrder()}
            
             >PROCEED TO CHECKOUT</button>
+            <p>{loader}</p>
              <button className="chec"></button>
 
         </div>
