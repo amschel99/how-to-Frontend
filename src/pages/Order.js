@@ -52,17 +52,19 @@ const [user, setUser]= useState("")
         }
         
 try{
- // setLoader("check your phone for an Mpesa prompt")
+  setLoader("check your phone for an Mpesa prompt")
 
 const response= await axiosPrivate.post("/order", {products:items,price:totalPrice,quantity:totalItems},{
                     headers: { 'Content-Type': 'application/json' },
                     withCredentials: true
                 })
                 console.log(response.status)
-              //setLoader("Order succesful...")
+              setLoader("Order succesful...")
+              setNumber("")
 }
 catch(error){
     console.log(error.message +error.status)
+    setLoader("there was an error")
 
 }
 
