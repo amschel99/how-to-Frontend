@@ -92,7 +92,44 @@ image
 }}
 
   }
+},
+incrementQuantity:{
+  reducer:(state,action)=>{
+       //const productTargeted= current(state).items.find((product)=>product.name===action.payload.name)
+       //
+
+     state.items.map((item)=>{
+      if(item.name===action.payload.name){
+        if(!item.quantity){
+          return item.quantity=2
+        }
+        else{
+   return  item.quantity+=1
+        }
+   
+      }
+      return null
+
+     })
+     state.totalPrice+=action.payload.price
+
+       
+
+       // console.log(productTargeted)
+
+  },
+  prepare:({name,price,image})=>{
+
+     return {
+        payload:{
+name,
+price,
+image
+}}
+  }
 }
+
+
 
 
 
@@ -100,6 +137,6 @@ image
 }
 
 )
-export const {itemAdded,itemRemoved}= cartSlice.actions
+export const {itemAdded,itemRemoved,incrementQuantity}= cartSlice.actions
 
 export default cartSlice.reducer
