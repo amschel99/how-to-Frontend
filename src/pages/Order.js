@@ -6,12 +6,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../pages/account/account.css"
 import logo from "../components/images/brand.svg"
 import{Link} from "react-router-dom"
+import {  useDispatch, useSelector} from 'react-redux'
+import {itemRemoved} from "../feautures/cart/cartSlice"
 
 
 import "./css/order.css"
-import { useSelector } from "react-redux";
+
 
 const Order = () => {
+      const dispatch= useDispatch()
+
+      const removeFromCart= (product)=>{
+    const{name, price,image}=product
+ 
+ 
+dispatch((itemRemoved({name,price,image})))
+
+
+  }
 
 
 
@@ -134,7 +146,9 @@ catch(error){
      <FontAwesomeIcon className="text-primary" icon={faMinus}/>   
     
 </td>
-<td className="text-crimson-300 cursor-pointer">
+<td className="text-crimson-300 cursor-pointer"
+onClick={()=>removeFromCart(item)}
+>
      <FontAwesomeIcon className="text-primary" icon={faTrash}/>   
     
 </td>
