@@ -58,23 +58,24 @@ const product=data.data.find((item)=>item._id===productId)
     <div className="flex justify-between flex-wrap ">
         <div className="flex flex-col">
              <img  src={product.image} alt="product"/>
-             <div className="flex items-center">
-                <h3>Rate this Product</h3>
- <Rating/>
-             </div>
-            
-             <button>Add to Cart</button>
-              <div className="flex flex-col mx-4">
-        <h1 className="text-xlg font-lato text-dea-500  ">
+              <div className="flex flex-col ">
+        <h1 className="text-xlg font-lato text-dea-500 text-primary  ">
             {product.name}
         
         </h1>
        
-        <h1>{product.price}</h1>
-        <h1>{product.rating}</h1>
+        <h1 className="text-secondary">PRICE  KSH{product.price}</h1>
+        <h1 >{product.rating}</h1>
 
      </div>
 
+             <div className="flex items-center">
+                <h3 className="className='text-secondary'">Rate this Product</h3>
+ <Rating/>
+             </div>
+            
+             <button>Add to Cart</button>
+             
 
         </div>
     
