@@ -31,7 +31,13 @@ dispatch((itemAdded({name,price,image})))
   }
 
   
+  
 const fetchProducts= async ()=>{
+  try{
+
+ 
+
+ 
 const response= await axios.get(`https://jyd-shoppers.herokuapp.com/products`,
 {
  params:{name:search,
@@ -42,6 +48,12 @@ const response= await axios.get(`https://jyd-shoppers.herokuapp.com/products`,
 console.log(response.data.data)
 
 return await response.data.data
+ }catch(e){
+  console.log(e.message)
+  return null
+ }
+
+ 
 }
 
 

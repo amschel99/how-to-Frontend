@@ -7,7 +7,7 @@ import "../pages/account/account.css"
 import logo from "../components/images/brand.svg"
 import{Link} from "react-router-dom"
 import {  useDispatch, useSelector} from 'react-redux'
-import {itemRemoved,incrementQuantity} from "../feautures/cart/cartSlice"
+import {itemRemoved,incrementQuantity,decrementQuantity} from "../feautures/cart/cartSlice"
 
 
 import "./css/order.css"
@@ -25,15 +25,25 @@ dispatch((itemRemoved({name,price,image})))
 
   }
 
-    const incrementItem= (product)=>{
+    const decrementItem= (product)=>{
     const{name, price,image}=product
-    console.log('hey I clicked you')
+    
+ 
+ 
+dispatch((decrementQuantity({name,price,image})))
+
+
+  }
+   const incrementItem= (product)=>{
+    const{name, price,image}=product
+    
  
  
 dispatch((incrementQuantity({name,price,image})))
 
 
   }
+
 
 
 
@@ -156,7 +166,9 @@ onClick={()=>incrementItem(item)}
  />   
     
 </td>
-<td className="cursor-pointer">
+<td className="cursor-pointer"
+onClick={()=>decrementItem(item)}
+>
      <FontAwesomeIcon className="text-primary" icon={faMinus}/>   
     
 </td>

@@ -127,6 +127,65 @@ price,
 image
 }}
   }
+},
+
+decrementQuantity:{
+  reducer:(state,action)=>{
+       //const productTargeted= current(state).items.find((product)=>product.name===action.payload.name)
+       //
+
+     state.items.map((item,i)=>{
+      if(item.name===action.payload.name){
+
+        if(!item.quantity){
+          //means the quantity is one so substarct money and slice
+       
+          state.totalPrice-=action.payload.price
+            return state.items.splice(i,1) 
+        }
+        else{
+
+         if(item.quantity>1){
+          //if quantity is one and above, decrement it and the money
+          item.quantity-=1
+  return  state.totalPrice-=action.payload.price
+   } 
+   else{
+    if(item.quantity>0){
+      //which is one
+        state.totalPrice-=action.payload.price
+            return state.items.splice(i,1) 
+
+    }
+ 
+
+   }
+
+    
+  
+        }
+   
+      }
+      return null
+
+     })
+    
+    
+
+       
+
+       // console.log(productTargeted)
+
+  },
+  prepare:({name,price,image})=>{
+
+     return {
+        payload:{
+name,
+price,
+image
+}}
+  }
 }
 
 
@@ -137,6 +196,6 @@ image
 }
 
 )
-export const {itemAdded,itemRemoved,incrementQuantity}= cartSlice.actions
+export const {itemAdded,itemRemoved,incrementQuantity,decrementQuantity}= cartSlice.actions
 
 export default cartSlice.reducer
