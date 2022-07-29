@@ -7,7 +7,7 @@ import {itemAdded} from "../feautures/cart/cartSlice"
 import {faSpaceShuttle,faStar} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Cart from "./Cart"
-import Rating from './Rating'
+import {Link} from 'react-router-dom'
 
 
 
@@ -15,7 +15,9 @@ import Rating from './Rating'
 
 
 
-const Main = ({open}) => {
+
+const Main = ({products,setProducts}) => {
+  const open=false
   
   
 const {search}= useSelector((state)=>state.search)
@@ -35,10 +37,6 @@ dispatch((itemAdded({name,price,image})))
   
 const fetchProducts= async ()=>{
   try{
-
- 
-
- 
 const response= await axios.get(`https://jyd-shoppers.herokuapp.com/products`,
 {
  params:{name:search,
@@ -47,6 +45,7 @@ const response= await axios.get(`https://jyd-shoppers.herokuapp.com/products`,
 }
 )
 console.log(response.data.data)
+setProducts(response.data.data)
 
 return await response.data.data
  }catch(e){
@@ -86,16 +85,20 @@ if(isError){
  
   {
     data.map((item)=>{
-      return <div key={item.image} className=" lg:w-[8rem] xlg:w-[8rem] sm:w-[5rem] md:w-[4rem] w-[5rem] h-[250px] flex flex-col items-center my-5 bg-white mx-1 lg:mx-3 xlg:mx-3 text-primary text-center">
-        <img className='w-full h-14' src={item.image} alt="item" />
+      return   <div key={item.image} className=" lg:w-[8rem] xlg:w-[8rem] my-5 sm:w-[5rem] md:w-[4rem] w-[5rem] h-[250px] flex flex-col items-center  bg-white mx-1 lg:mx-3 xlg:mx-3 text-primary text-center">
+     <img className='w-full h-14' src={item.image} alt="item" />
   
-        <h5 className='h-20 text-xs '>{item.name}</h5>
+     <h5 className='h-20 text-xs '>{item.name}</h5>    
         <h6 className="h-20  text-xs">
         Ksh {item.price}
         </h6>
-        <p className='text-xs h-10'>Rating 4.5 (20)
+        <p className='text-xs h-10'>Rating 4.5(20)
        
         </p>
+        <Link to={`/${item._id}`} className="bg-sea-500">
+        <p className="text-xs">View more</p>
+        </Link>
+       
        <button className=' text-xs p-[1px] rounded-sm lg:w-3/4 xlg:w-3/4 sm:w-full md:w-full w-full h-20 text-white bg-dodger hover:text-dodger hover:bg-primary'
         onClick={()=>addtoCart(item)}
        >Add To Cart</button>
@@ -103,6 +106,8 @@ if(isError){
 
 
       </div>
+ 
+    
     })
   }
 

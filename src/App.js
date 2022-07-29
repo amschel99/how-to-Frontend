@@ -9,14 +9,20 @@ import Login from "./pages/account/Login"
 import Protected from "./pages/Protected"
 import PersistentLogin from "./components/PersistentLogin"
 import Order from "./pages/Order"
+import Product from './components/Product'
 
 
 const App = () => {
+
+  const [products,setProducts]=React.useState([])
   return (
 
  <Routes>
 
-<Route path="/" element={<Welcome/>}/>
+<Route path="/" element={<Welcome products={products} setProducts={setProducts}/>}>
+
+</Route>
+<Route path=":productId" element={<Product products={products}/>}/>
 
 
    

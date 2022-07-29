@@ -4,11 +4,12 @@ import Navbar from '../../components/Navbar'
 
 import Main from "../../components/Main"
 
-const Welcome = () => {
+const Welcome = ({products, setProducts}) => {
+
   return (
     <>
     <Navbar/>
-   <Main/>
+   <Main products={products} setProducts={setProducts}/>
     
     </>
   )
