@@ -86,14 +86,14 @@ if(isError){
  
   {
     data.map((item)=>{
-      return <div key={item.image} className=" lg:w-[8rem] xlg:w-[8rem] sm:w-[5rem] md:w-[4rem] w-[5rem] h-36 flex flex-col items-center my-5 bg-white mx-1 lg:mx-3 xlg:mx-3 text-primary text-center">
+      return <div key={item.image} className=" lg:w-[8rem] xlg:w-[8rem] sm:w-[5rem] md:w-[4rem] w-[5rem] h-[200px] flex flex-col items-center my-5 bg-white mx-1 lg:mx-3 xlg:mx-3 text-primary text-center">
         <img className='w-full h-14' src={item.image} alt="item" />
   
         <h5 className='h-20 text-xs '>{item.name}</h5>
         <h6 className="h-20  text-xs">
          {item.price}
         </h6>
-        <p className='text-xs'>Rating 4.5 (20)
+        <p className='text-xs h-10'>Rating 4.5 (20)
        
         </p>
        <button className=' text-xs p-[1px] rounded-sm lg:w-3/4 xlg:w-3/4 sm:w-full md:w-full w-full h-20 text-white bg-dodger hover:text-dodger hover:bg-primary'
