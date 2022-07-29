@@ -138,9 +138,10 @@ decrementQuantity:{
       if(item.name===action.payload.name){
 
         if(!item.quantity){
-          //means the quantity is one so substarct money and slice
+          //means the quantity is one so substarct money,decrement quantity and slice
        
           state.totalPrice-=action.payload.price
+          state.totalItems-=1
             return state.items.splice(i,1) 
         }
         else{
@@ -154,6 +155,7 @@ decrementQuantity:{
     if(item.quantity>0){
       //which is one
         state.totalPrice-=action.payload.price
+          state.totalItems-=1
             return state.items.splice(i,1) 
 
     }
