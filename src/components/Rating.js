@@ -4,7 +4,7 @@ const Rating = () => {
       const [rating, setRating] = useState(0);
         const [hover, setHover] = useState(0); 
  return (
-    <div className="star-rating text-xs">
+    <div className="star-rating text-xs mx-2 sm:w-[40vw] md:w-[40vw]">
       {[...Array(5)].map((star, index) => {
         index += 1;
         return (
