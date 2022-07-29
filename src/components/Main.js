@@ -4,9 +4,10 @@ import { useQuery, } from 'react-query'
 import {  useDispatch, useSelector} from 'react-redux'
 import {itemAdded} from "../feautures/cart/cartSlice"
 
-import {faSpaceShuttle,} from "@fortawesome/free-solid-svg-icons";
+import {faSpaceShuttle,faStar} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Cart from "./Cart"
+import Rating from './Rating'
 
 
 
@@ -81,17 +82,20 @@ if(isError){
    
    
      
-<div className='w-[100vw] flex pl-10 items-center px-2 lg:justify-center xlg:justify-center sm:justify-start md:justify-start justify-start flex-wrap   relative top-[100px]'>
+<div className='w-[100vw] flex pl-10 items-center px-2 lg:justify-start xlg:justify-start sm:justify-start md:justify-start justify-start flex-wrap   relative top-[100px]'>
  
   {
     data.map((item)=>{
-      return <div key={item.image} className=" lg:w-[8rem] xlg:w-[8rem] sm:w-[5rem] md:w-[4rem] w-[5rem] h-36 flex flex-col items-center my-5 bg-white mx-1 text-primary text-center">
+      return <div key={item.image} className=" lg:w-[8rem] xlg:w-[8rem] sm:w-[5rem] md:w-[4rem] w-[5rem] h-36 flex flex-col items-center my-5 bg-white mx-1 lg:mx-3 xlg:mx-3 text-primary text-center">
         <img className='w-full h-14' src={item.image} alt="item" />
   
         <h5 className='h-20 text-xs '>{item.name}</h5>
         <h6 className="h-20  text-xs">
          {item.price}
         </h6>
+        <p className='text-xs'>Rating 4.5 (20)
+       
+        </p>
        <button className=' text-xs p-[1px] rounded-sm lg:w-3/4 xlg:w-3/4 sm:w-full md:w-full w-full h-20 text-white bg-dodger hover:text-dodger hover:bg-primary'
         onClick={()=>addtoCart(item)}
        >Add To Cart</button>

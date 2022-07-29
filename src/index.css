@@ -21,6 +21,14 @@ box-sizing: border-box;
 max-width: 100vw;
 
 }
+
+.on {
+    color: #000;
+}
+
+.off {
+    color: #ccc;
+}
 :root{
 --primary:#180018;
 --secondary:#301860;
