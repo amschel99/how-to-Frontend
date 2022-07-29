@@ -55,7 +55,7 @@ const product=data.data.find((item)=>item._id===productId)
 
 </nav>
 <div className="w-creen  flex justify between ">
-    <div className="flex justify-between ">
+    <div className="flex justify-between flex-wrap ">
         <div className="flex flex-col">
              <img  src={product.image} alt="product"/>
              <div className="flex items-center">
