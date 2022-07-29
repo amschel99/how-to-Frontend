@@ -64,11 +64,7 @@ const product=data.data.find((item)=>item._id===productId)
              </div>
             
              <button>Add to Cart</button>
-
-
-        </div>
-    
-     <div className="flex flex-col mx-4">
+              <div className="flex flex-col mx-4">
         <h1 className="text-xlg font-lato text-dea-500  ">
             {product.name}
         
@@ -78,6 +74,11 @@ const product=data.data.find((item)=>item._id===productId)
         <h1>{product.rating}</h1>
 
      </div>
+
+
+        </div>
+    
+    
 
     </div>
     <div>
@@ -91,7 +92,6 @@ const product=data.data.find((item)=>item._id===productId)
     </div>
   );
 }
-
 
 
 export default Product;
