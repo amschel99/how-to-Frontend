@@ -47,7 +47,7 @@ const Cart = () => {
 
 
 </Link>
-<div className="flex w-screen justify-start items-start ml-20 flex-wrap">
+<div className="flex w-screen justify-start items-start lg:ml-20 xlg:ml-20 sm:ml-14 md:ml-14 ml-14  flex-wrap">
 <a href="https://wa.me/+254790569556" className='flex justify-start font-bold font-heading cursor-pointer'> 
 Enquire now
  <img className="w-6 mx-2" src="https://img.icons8.com/ios-filled/50/228BE6/whatsapp--v1.png" alt="whatsapp"/></a>
