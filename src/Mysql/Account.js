@@ -16,7 +16,7 @@ setws(ws)
 //when the connection is open
 ws.onopen=()=>{
     setStatus("connected to the server")
-    ws.send("Joined the chat")
+
 
 }
 ws.onmessage=  (e)=>{
@@ -26,7 +26,7 @@ ws.onmessage=  (e)=>{
 
 }
 ws.onerror= (e)=>{
-    setStatus(JSON.stringify(e))
+    setStatus("not connected")
 }
     
 
@@ -35,24 +35,29 @@ ws.onerror= (e)=>{
 
         <div className='w-screen h-screen bg-black flex flex-col items-center justify-evenly'>
 
-      <p className="text-white text-xlg"> {status}</p>
-      <input type='text' className='bg-dodger text-white'
-      placeholder='enter a message'
-      onChange={(e)=>setMessage(e.target.value)}
-       />
-       <button
-       className='bg-white text-dodger rounded-sm border-0 p-4'
+      <p className="text-white font-extrabold text-xlg"> Connection Status:  {status}</p>
+    <div className="bg-white lg:w-[50vw] xlg:w-[50vw] md:w-[80vw] sm:w-[80vw] w-[80vw] h-[50vh] overflow-scroll flex flex-col justify-end items-start">
+          
+      {
+        messages.map((message)=>{
+           return <p className="bg-basic rounded-sm p-2 my-2">
+            {message}
+           </p>
+        })
+      }
+     
+     <textarea className='relative top-12' placeholder='enter your message here'
+     onChange={(e)=>setMessage(e.target.value)}
+     ></textarea>
+         
+<button
+       className=' text-dodger rounded-sm border-0 p-4 relative  bg-primary sm:left-[62vw] md:left-[50vw] lg:left-[42vw] xlg:left-[40vw] left-[63vw]'
        onClick={()=>{
         ws.send(message)
        }}
        >Send</button>
-      {
-        messages.map((message)=>{
-           return <div className="text-white flex flex-col">
-            {message}
-           </div>
-        })
-      }
+    </div>
+     
         </div>
     )
 }
