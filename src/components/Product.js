@@ -5,12 +5,25 @@ import React from "react"
 import { Link } from "react-router-dom"
 import logo from "./images/brand.svg"
 import Rating from "./Rating"
+import {  useDispatch, useSelector} from 'react-redux'
+import {itemAdded} from "../feautures/cart/cartSlice"
+
+import cartImg from "./images/shopping-cart.png"
 
 const Product = () => {
+    const cart= useSelector((state)=>state.cart)
  
-
+const dispatch= useDispatch()
    // console.log(products)
   const{productId}=useParams()
+  const addtoCart= (product)=>{
+    const{name, price,image}=product
+ 
+ 
+dispatch((itemAdded({name,price,image})))
+
+
+  }
 
 
 const fetchProducts=async ()=>{
@@ -51,13 +64,22 @@ const product=data.data.find((item)=>item._id===productId)
 <Link to="/">
 <img src={logo} className="lg:h-20 xlg:h-20 sm:h-12 md:h-12 h-12 cursor-pointer" alt="logo"/>
 </Link>
+<Link to='/activity' className='flex justify-between'>
+ 
+<img className='h-10' src={cartImg} alt="shopping-cart"/>
+<p className='relative bottom-4 right-4'>{cart.totalItems}</p>
+
+
+</Link>
 
 
 </nav>
 <div className="w-creen  flex sm:flex-col md:flex-col lg:flex-row  xlg:flex-row flex-col justify-start h-screen   relative top-[120px]">
   <div className="">
  <img src={product.image} alt="product" className="sm:w-screen md:w-screen lg:w-full xlg:w-full  w-screen "/>
- <button className="w-full">Add To Cart</button>
+ <button className="w-full"
+   onClick={()=>addtoCart(product)}
+ >Add To Cart</button>
   </div>
  
   <div className="flex flex-col items-center justify-start ml-4">
