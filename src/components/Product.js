@@ -87,7 +87,7 @@ const product=data.data.find((item)=>item._id===productId)
 <h1 className="font-lato text-primary font-semibold my-2"> <span className="text-xlg text-sea-500 font-heading">This Product costs </span> KSH{product.price}</h1>
 <div>
   <h1 className="font-bold text-black font-heading my-2">About This Product</h1>
-  <p className="max-w-[40vw]">
+  <p className="lg:max-w-[40vw] xlg:max-w-[40vw] sm:max-w-[80vw] md:max-w-[80vw] max-w-[80vw]">
 Quick access to Siri by saying “ Hey Siri ”
 More than 24 hours total listening time with the Charging Case
 Effortless setup, in-ear detection, and automatic switching for a magical experience
