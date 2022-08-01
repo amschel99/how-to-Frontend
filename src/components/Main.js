@@ -8,6 +8,7 @@ import {faSpaceShuttle,faStar} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Cart from "./Cart"
 import {Link} from 'react-router-dom'
+import PageButton from "./PageButton"
 
 
 
@@ -18,6 +19,7 @@ import {Link} from 'react-router-dom'
 
 const Main = ({products,setProducts}) => {
   const open=false
+  const[page,setPage]=React.useState(1)
   
   
 const {search}= useSelector((state)=>state.search)
@@ -40,7 +42,9 @@ const fetchProducts= async ()=>{
 const response= await axios.get(`https://jyd-shoppers.herokuapp.com/products`,
 {
  params:{name:search,
- sort
+ sort,
+ page:page,
+ limit:5
   }
 }
 )
@@ -57,7 +61,24 @@ return await response.data.data
 }
 
 
-const{isLoading, isError,data}= useQuery(["products", search, sort],()=> fetchProducts(search, sort))
+const{isLoading, isError,isPreviousData,data}= useQuery(["products", search, sort,page],()=> fetchProducts(search, sort,page),{
+  keepPreviousData:true
+})
+const nextPage= ()=>setPage((prev)=>prev+1)
+const prevPage= ()=>setPage((prev)=>prev-1)
+const pagesArray= Array(2).fill().map((_,i)=>i+1)
+const navButtons= (
+<nav>
+  <button onClick={prevPage} disabled={isPreviousData || page===1}>
+    &lt;&lt;
+  </button>
+  {pagesArray.map((pg)=><PageButton key={pg} pg={pg} setPage={setPage} isPreviousData={isPreviousData}/>)}
+<button onClick={nextPage} disabled={isPreviousData || page===2}>
+    &gt;&gt;
+  </button>
+</nav>
+
+)
 if(isLoading){
   return <>
   <FontAwesomeIcon icon={faSpaceShuttle} className={`${open ?"sm:sr-only md:sr-only lg:not-sr-only xlg:not-sr-only sr-only": 'not-sr-only'} w-10 text-basic`} />
@@ -76,8 +97,12 @@ if(isError){
 
 
   return (
-    <div className='relative top-20'>
+    <div className='relative top-20 flex flex-col'>
        <Cart/>
+       <div className="relative lg:top-[9rem] xlg:top-[9rem] sm:top-[12rem] md:top-[12rem] top-[12rem]  flex justify-center">
+{navButtons}
+</div>
+   
    
    
      
@@ -110,9 +135,13 @@ if(isError){
     
     })
   }
+ 
 
 
 </div>
+
+
+
  </div>
     
    

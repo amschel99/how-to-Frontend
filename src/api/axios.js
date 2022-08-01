@@ -13,3 +13,7 @@ headers:{'Content-Type':'application/json'},
 withCredentials:true
 
 })
+export const getProductPage= async (page=1)=>{
+const response= await axios.get(`https://jyd-shoppers.herokuapp.com/products?page=${page}`)
+return response.data
+}
