@@ -4,13 +4,14 @@ import { useQuery, } from 'react-query'
 import React from "react"
 import { Link } from "react-router-dom"
 import logo from "./images/brand.svg"
-import Rating from "./Rating"
+
 import {  useDispatch, useSelector} from 'react-redux'
 import {itemAdded} from "../feautures/cart/cartSlice"
 
 import cartImg from "./images/shopping-cart.png"
 
 const Product = () => {
+  const [feedbacks,setFeedbacks]=React.useState()
     const cart= useSelector((state)=>state.cart)
  
 const dispatch= useDispatch()
@@ -24,6 +25,9 @@ dispatch((itemAdded({name,price,image})))
 
 
   }
+
+  
+
 
 
 const fetchProducts=async ()=>{
@@ -58,6 +62,8 @@ return <>Error..</>
 const product=data.data.find((item)=>item._id===productId)
 
 
+//productRated is an array of feedback objects
+
     return (
     <div>
          <nav className='w-screen z-50 h-20 bg-primary flex items-center justify-evenly  fixed' >
@@ -77,12 +83,14 @@ const product=data.data.find((item)=>item._id===productId)
 <div className="w-creen  flex sm:flex-col md:flex-col lg:flex-row  xlg:flex-row flex-col justify-start h-screen   relative top-[120px]">
   <div className="">
  <img src={product.image} alt="product" className="sm:w-screen md:w-screen lg:w-full xlg:w-full  w-screen "/>
+
+
  <button className="w-full"
    onClick={()=>addtoCart(product)}
  >Add To Cart</button>
   </div>
  
-  <div className="flex flex-col items-center justify-start ml-4">
+  <div className="flex flex-col items-start justify-start ml-4">
 <h1 className="font-bold text-black font-heading my-2">{product.name}</h1>
 <h1 className="font-lato text-primary font-semibold my-2"> <span className="text-xlg text-sea-500 font-heading">This Product costs </span> KSH{product.price}</h1>
 <div>
@@ -94,20 +102,8 @@ Effortless setup, in-ear detection, and automatic switching for a magical experi
 Easily share audio between two sets of AirPods on your iPhone, iPad, iPod touch, or Apple TV
   </p>
 </div>
-<h1 className="lg:hidden xlg:hidden md:block sm:block block font-heading  text-primary font-semibold my-2"> Rate this Product </h1>
-<div className="flex sm:relative md:relative  sm:flex-col md:flex-col lg:flex-row xlg:flex-row flex-col left:30px items-center my-4">
-<h3 className="text-xs  sm:hidden md:hidden lg:block xlg:block hidden font-heading  text-primary font-semibold my-2">Rate this Product</h3>
-
-<Rating/>
 
 
-
-</div>
-<div className="flex flex-col lg:relative xlg:relative right-[150px]">
-  <textarea placeholder="tell others what you think about this product"></textarea>
-<button>Submit Feedback</button>
-
-</div>
 
 
   </div>

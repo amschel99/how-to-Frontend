@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from "axios"
-import Navbar from './Navbar'
+
 import Account from './Account'
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
   return (
 <>
 
-<Navbar/>
+
 <Account/>
 </>
  
