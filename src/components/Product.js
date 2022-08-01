@@ -80,7 +80,7 @@ const product=data.data.find((item)=>item._id===productId)
 
 
 </nav>
-<div className="w-creen  flex sm:flex-col md:flex-col lg:flex-row  xlg:flex-row flex-col justify-start h-screen   relative top-[120px]">
+<div className="w-creen  flex sm:flex-col md:flex-col lg:flex-row  xlg:flex-row flex-col justify-start h-screen   relative top-[118px]">
   <div className="">
  <img src={product.image} alt="product" className="sm:w-screen md:w-screen lg:w-full xlg:w-full  w-screen "/>
 
