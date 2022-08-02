@@ -2,6 +2,7 @@ import React from 'react'
 
 import logo from "./images/brand.svg"
 import hp from "./images/hp.png"
+import lenovo from "./images/lenovo.png"
 
 import { faSearch,faTshirt,faLaptop, faStopwatch,faBook,faUmbrella,faBars,faClose,faMobilePhone}from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -52,11 +53,11 @@ onClick={()=>{
                 <li className='flex text-crimson-500 hover:underline font-lato mx-4'>
 
 <img  className="w-5" src={hp} alt="hp"/>
-                    <h1 className='text-sm'>Hp laptops</h1>
+                 
                 </li>
                 <li className='flex text-crimson-500 hover:underline font-lato mx-4'>
-                    <FontAwesomeIcon icon={faLaptop} className=" text-sm "/>
-                    <h1 className='text-sm'>Laptops</h1>
+                   <img  className="w-10" src={lenovo} alt="hp"/>
+                  
                 </li>
                  <li className='flex text-crimson-500 hover:underline font-lato mx-4'>
                     <FontAwesomeIcon icon={faMobilePhone} className=" text-sm "/>
@@ -107,8 +108,9 @@ onClick={()=>{
                     <h1 className='text-sm'>Hp laptops</h1>
                 </li>
                 <li className='flex text-crimson-500  font-lato mx-4'>
-                    <FontAwesomeIcon icon={faLaptop} className=" text-lg mx-1 "/>
-                    <h1 className='mx-1'>Laptops</h1>
+                   <img  className="w-5" src={lenovo} alt="hp"/>
+                    <h1 className='text-sm'>Lenovo</h1>
+                    
                 </li>
                  <li className='flex text-crimson-500  font-lato mx-4'>
                     <FontAwesomeIcon icon={faMobilePhone} className=" text-lg mx-1 "/>
