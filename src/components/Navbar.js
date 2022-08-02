@@ -3,6 +3,10 @@ import React from 'react'
 import logo from "./images/brand.svg"
 import hp from "./images/hp.png"
 import lenovo from "./images/lenovo.png"
+import dell from "./images/dell.png"
+import acer from './images/acer.png'
+import ssd from './images/ssd.png'
+
 
 import { faSearch,faTshirt,faLaptop, faStopwatch,faBook,faUmbrella,faBars,faClose,faMobilePhone}from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -60,12 +64,18 @@ onClick={()=>{
                   
                 </li>
                  <li className='flex text-crimson-500 hover:underline font-lato mx-4'>
-                    <FontAwesomeIcon icon={faMobilePhone} className=" text-sm "/>
-                    <h1 className='text-sm'>Mobile Phones</h1>
+               
+                 <img  className="w-10" src={dell} alt="hp"/>
                 </li>
                  <li className='flex text-crimson-500 hover:underline font-lato mx-4'>
-                    <FontAwesomeIcon icon={faStopwatch} className=" text-sm "/>
-                    <h1 className='text-sm'>Smart Watches</h1>
+                     <img  className="w-10" src={acer} alt="hp"/>
+                </li>
+                <li className='flex text-crimson-500 hover:underline font-lato mx-4'>
+                  <FontAwesomeIcon className="text-lg my-5" icon={faStopwatch}/>
+
+                </li>
+                 <li className='flex text-crimson-500  font-lato mx-4'>
+                     <img  className="w-6" src={ssd} alt="hp"/>
                 </li>
                 
             </ul>
@@ -105,7 +115,7 @@ onClick={()=>{
             <ul className={` ${open?"w-full scale-2":"scale-0 w-0 h-0"}  flex flex-col justify-evenly h-[300px] items-center duration-300   `}>
                 <li className='flex text-crimson-500  font-lato mx-4'>
                     <img  className="w-5" src={hp} alt="hp"/>
-                    <h1 className='text-sm'>Hp laptops</h1>
+                   
                 </li>
                 <li className='flex text-crimson-500  font-lato mx-4'>
                    <img  className="w-10" src={lenovo} alt="hp"/>
@@ -113,12 +123,13 @@ onClick={()=>{
                     
                 </li>
                  <li className='flex text-crimson-500  font-lato mx-4'>
-                    <FontAwesomeIcon icon={faMobilePhone} className=" text-lg mx-1 "/>
-                    <h1 className='mx-1'>Mobile Phones</h1>
+                      <img  className="w-10" src={dell} alt="hp"/>
                 </li>
                  <li className='flex text-crimson-500  font-lato mx-4'>
-                    <FontAwesomeIcon icon={faStopwatch} className=" text-lg mx-1 "/>
-                    <h1 className='mx-1'>Smart Watches</h1>
+                     <img  className="w-10" src={acer} alt="hp"/>
+                </li>
+                 <li className='flex text-crimson-500  font-lato mx-4'>
+                     <img  className="w-10" src={ssd} alt="hp"/>
                 </li>
                 
             </ul>
