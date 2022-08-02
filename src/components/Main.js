@@ -99,14 +99,14 @@ if(isError){
   return (
     <div className='relative top-20 flex flex-col'>
        <Cart/>
-       <div className="relative lg:top-[9rem] xlg:top-[9rem] sm:top-[12rem] md:top-[12rem] top-[12rem]  flex justify-center">
+       <div className="relative lg:top-[9rem] xlg:top-[9rem] sm:top-[9rem] md:top-[9rem] top-[9rem]  flex justify-center">
 {navButtons}
 </div>
    
    
    
      
-<div className='w-[100vw] flex pl-10 items-center px-2 lg:justify-start xlg:justify-start sm:justify-start md:justify-start justify-start flex-wrap   relative lg:top-[200px] xlg:top-[200px] sm:top-[260px] md:top-[260px] top-[260px]'>
+<div className='w-[100vw] flex pl-10 items-center px-2 lg:justify-start xlg:justify-start sm:justify-start md:justify-start justify-start flex-wrap   relative lg:top-[200px] xlg:top-[200px] sm:top-[200px] md:top-[200px] top-[200px]'>
  
   {
     data.map((item)=>{
