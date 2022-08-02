@@ -1,6 +1,7 @@
 import React from 'react'
 
 import logo from "./images/brand.svg"
+import hp from "./images/hp.png"
 
 import { faSearch,faTshirt,faLaptop, faStopwatch,faBook,faUmbrella,faBars,faClose,faMobilePhone}from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -49,8 +50,9 @@ onClick={()=>{
         <div className="sm:hidden md:hidden lg:block xlg:block hidden cursor-pointer">
             <ul className='flex '>
                 <li className='flex text-crimson-500 hover:underline font-lato mx-4'>
-                    <FontAwesomeIcon icon={faTshirt} className=" text-sm"/>
-                    <h1 className='text-sm'>Clothes</h1>
+
+<img  className="w-5" src={hp} alt="hp"/>
+                    <h1 className='text-sm'>Hp laptops</h1>
                 </li>
                 <li className='flex text-crimson-500 hover:underline font-lato mx-4'>
                     <FontAwesomeIcon icon={faLaptop} className=" text-sm "/>
@@ -101,8 +103,8 @@ onClick={()=>{
         <div  className={` ${open?"w-screen ":" w-0 h-0 sr-only"} cursor-pointer smblock md:block lg:hidden xlg:hidden w-screen block bg-primary absolute top-16    `}>
             <ul className={` ${open?"w-full scale-2":"scale-0 w-0 h-0"}  flex flex-col justify-evenly h-[300px] items-center duration-300   `}>
                 <li className='flex text-crimson-500  font-lato mx-4'>
-                    <FontAwesomeIcon icon={faTshirt} className="mx-1 text-lg"/>
-                    <h1 className='mx-1'>Tshirts, Hoods,Caps</h1>
+                    <img  className="w-5" src={hp} alt="hp"/>
+                    <h1 className='text-sm'>Hp laptops</h1>
                 </li>
                 <li className='flex text-crimson-500  font-lato mx-4'>
                     <FontAwesomeIcon icon={faLaptop} className=" text-lg mx-1 "/>
