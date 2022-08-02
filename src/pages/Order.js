@@ -147,7 +147,7 @@ catch(error){
     return <tr className="bg-white border flex justify-evenly items-center">
 <td className="flex flex-col  items-center">
     <img width="20px" src={item.image} alt="product"/>
-    <h6 className="text-primary text-xs">{item.name}</h6>
+    <h6 className="text-primary text-xs">{item.name.substring(0,15)}</h6>
 </td>
 <td className=" text-start w-4">
     <h6 className="text-secondary text-xs">KSH {item.price}</h6>
