@@ -141,7 +141,7 @@ catch(error){
 <h1>Welcome {user}</h1>
 </nav>
         <div className="the-cart">
-            <table className="mt-4 lg:w-[70vw] xlg:w-screen sm:w-[95vw] md:w-[95vw] w-[95vw] ">
+            <table className="mt-4 lg:w-[70vw] xlg:w-screen sm:w-[100vw] md:w-[100vw] w-[100vw] ">
 
 {items.map((item)=>{
     return <tr className="bg-white border flex justify-evenly items-center">
