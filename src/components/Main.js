@@ -24,6 +24,9 @@ const Main = ({products,setProducts}) => {
   
 const {search}= useSelector((state)=>state.search)
 const {sort}= useSelector((state)=>state.sort)
+const {brand}= useSelector((state)=>state.brand)
+
+const[pages,setPages]=React.useState()
   const dispatch= useDispatch()
 
   const addtoCart= (product)=>{
@@ -44,12 +47,14 @@ const response= await axios.get(`https://jyd-shoppers.herokuapp.com/products`,
  params:{name:search,
  sort,
  page:page,
- limit:5
+ limit:5,
+ brand:brand
   }
 }
 )
-console.log(response.data.data)
+console.log(brand)
 setProducts(response.data.data)
+setPages(response.data.pages)
 
 return await response.data.data
  }catch(e){
@@ -61,12 +66,12 @@ return await response.data.data
 }
 
 
-const{isLoading, isError,isPreviousData,data}= useQuery(["products", search, sort,page],()=> fetchProducts(search, sort,page),{
+const{isLoading, isError,isPreviousData,data}= useQuery(["products", search, sort,page,brand],()=> fetchProducts(search, sort,page,brand),{
   keepPreviousData:true
 })
 const nextPage= ()=>setPage((prev)=>prev+1)
 const prevPage= ()=>setPage((prev)=>prev-1)
-const pagesArray= Array(2).fill().map((_,i)=>i+1)
+const pagesArray= Array(pages).fill().map((_,i)=>i+1)
 const navButtons= (
 <nav>
   <button onClick={prevPage} disabled={isPreviousData || page===1}>

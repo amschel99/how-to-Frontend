@@ -15,14 +15,14 @@ import {Link} from "react-router-dom"
 
 import { useSelector,useDispatch } from 'react-redux'
 import {search} from "../feautures/search/searchSlice"
-import {sort} from "../feautures/Sort/sortSlice"
+import {brand} from "../feautures/brand/brandSlice"
 
 
 
 const Navbar = () => {
   const dispatch= useDispatch()
-  const cart= useSelector((state)=>state.cart)
-  const searchState= useSelector((state)=>state.search)
+ // const brand= useSelector((state)=>state.brand)
+
   const[value, setValue]=React.useState("")
 
 
@@ -54,27 +54,34 @@ onClick={()=>{
 
         <div className="sm:hidden md:hidden lg:block xlg:block hidden cursor-pointer">
             <ul className='flex '>
-                <li className='flex text-crimson-500 hover:underline font-lato mx-4'>
+                <li className='flex text-crimson-500 hover:underline font-lato mx-4'
+                 onClick={()=>dispatch(brand({brand:"hp"}))}
+                >
 
 <img  className="w-5" src={hp} alt="hp"/>
                  
                 </li>
-                <li className='flex text-crimson-500 hover:underline font-lato mx-4'>
+                <li className='flex text-crimson-500 hover:underline font-lato mx-4'
+                onClick={()=>dispatch(brand({brand:"lenovo"}))}
+                >
                    <img  className="w-10" src={lenovo} alt="hp"/>
                   
                 </li>
-                 <li className='flex text-crimson-500 hover:underline font-lato mx-4'>
+                 <li className='flex text-crimson-500 hover:underline font-lato mx-4'
+                  onClick={()=>dispatch(brand({brand:"dell"}))}
+                 >
                
                  <img  className="w-10" src={dell} alt="hp"/>
                 </li>
-                 <li className='flex text-crimson-500 hover:underline font-lato mx-4'>
+                 <li className='flex text-crimson-500 hover:underline font-lato mx-4'
+                  onClick={()=>dispatch(brand({brand:"acer"}))}
+                 >
                      <img  className="w-10" src={acer} alt="hp"/>
                 </li>
-                <li className='flex text-crimson-500 hover:underline font-lato mx-4'>
-                  <FontAwesomeIcon className="text-lg my-5" icon={faStopwatch}/>
-
-                </li>
-                 <li className='flex text-crimson-500  font-lato mx-4'>
+                
+                 <li className='flex text-crimson-500  font-lato mx-4'
+                  onClick={()=>dispatch(brand({brand:"ssd"}))}
+                 >
                      <img  className="w-6" src={ssd} alt="hp"/>
                 </li>
                 
@@ -113,22 +120,32 @@ onClick={()=>{
 
         <div  className={` ${open?"w-screen ":" w-0 h-0 sr-only"} cursor-pointer smblock md:block lg:hidden xlg:hidden w-screen block bg-primary absolute top-16    `}>
             <ul className={` ${open?"w-full scale-2":"scale-0 w-0 h-0"}  flex flex-col justify-evenly h-[300px] items-center duration-300   `}>
-                <li className='flex text-crimson-500  font-lato mx-4'>
+                <li className='flex text-crimson-500  font-lato mx-4'
+                 onClick={()=>dispatch(brand({brand:"hp"}))}
+                >
                     <img  className="w-5" src={hp} alt="hp"/>
                    
                 </li>
-                <li className='flex text-crimson-500  font-lato mx-4'>
+                <li className='flex text-crimson-500  font-lato mx-4'
+                 onClick={()=>dispatch(brand({brand:"lenovo"}))}
+                >
                    <img  className="w-10" src={lenovo} alt="hp"/>
                 
                     
                 </li>
-                 <li className='flex text-crimson-500  font-lato mx-4'>
+                 <li className='flex text-crimson-500  font-lato mx-4'
+                  onClick={()=>dispatch(brand({brand:"dell"}))}
+                 >
                       <img  className="w-10" src={dell} alt="hp"/>
                 </li>
-                 <li className='flex text-crimson-500  font-lato mx-4'>
+                 <li className='flex text-crimson-500  font-lato mx-4'
+                  onClick={()=>dispatch(brand({brand:"acer"}))}
+                 >
                      <img  className="w-10" src={acer} alt="hp"/>
                 </li>
-                 <li className='flex text-crimson-500  font-lato mx-4'>
+                 <li className='flex text-crimson-500  font-lato mx-4'
+                  onClick={()=>dispatch(brand({brand:"ssd"}))}
+                 >
                      <img  className="w-10" src={ssd} alt="hp"/>
                 </li>
                 
