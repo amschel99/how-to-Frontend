@@ -6,7 +6,7 @@
 
  ##### 2.Sort
 
- #####3.Pagination
+ ##### 3.Pagination
 
  ##### 4.Single Page with different routes.
 
