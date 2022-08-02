@@ -108,8 +108,8 @@ onClick={()=>{
                     <h1 className='text-sm'>Hp laptops</h1>
                 </li>
                 <li className='flex text-crimson-500  font-lato mx-4'>
-                   <img  className="w-5" src={lenovo} alt="hp"/>
-                    <h1 className='text-sm'>Lenovo</h1>
+                   <img  className="w-10" src={lenovo} alt="hp"/>
+                
                     
                 </li>
                  <li className='flex text-crimson-500  font-lato mx-4'>
