@@ -52,7 +52,7 @@ const Cart = () => {
 Enquire now
  <img className="w-6 mx-2" src="https://img.icons8.com/ios-filled/50/228BE6/whatsapp--v1.png" alt="whatsapp"/></a>
 
-<h3> PAYBILL <span className='font-bold text-pink-400 font-heading'>23456789</span></h3>
+<h3> Mpesa Paybill <span className='font-bold text-pink-400 font-heading'>23456789</span></h3>
 </div>
     </div>
   )
