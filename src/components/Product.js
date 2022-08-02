@@ -96,10 +96,7 @@ const product=data.data.find((item)=>item._id===productId)
 <div>
   <h1 className="font-bold text-black font-heading my-2">About This Product</h1>
   <p className="lg:max-w-[40vw] xlg:max-w-[40vw] sm:max-w-[100vw] md:max-w-[100vw] max-w-[100vw]">
-Quick access to Siri by saying “ Hey Siri ”
-More than 24 hours total listening time with the Charging Case
-Effortless setup, in-ear detection, and automatic switching for a magical experience
-Easily share audio between two sets of AirPods on your iPhone, iPad, iPod touch, or Apple TV
+{product.description}
   </p>
 </div>
 
