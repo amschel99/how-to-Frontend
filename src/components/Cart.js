@@ -21,18 +21,18 @@ const Cart = () => {
 </a>
 
 
-<select  className=' w-12 bg-secondary ml-1 mt-3 '>
+<select  className=' w-10 bg-secondary ml-1 mt-3 '>
   <option>ram</option>
     <option>4gb</option>
     <option>8gb</option>
 </select>
 
-<select  className=' w-12 bg-secondary ml-1 mt-3'>
+<select  className=' w-10 bg-secondary ml-1 mt-3'>
   <option>disk</option>
     <option>Hdd</option>
     <option>ssd</option>
 </select>
-<select  className=' w-12 bg-secondary m1-1 mt-3 ' >
+<select  className=' w-10 bg-secondary m1-1 mt-3 ' >
   <option>os</option>
     <option>windows</option>
     <option>ChromE</option>
@@ -69,7 +69,7 @@ const Cart = () => {
 
 <Link to='/activity' className='flex justify-between mt-3'>
  
-<img className='h-10' src={cartImg} alt="shopping-cart"/>
+<img className='h-8' src={cartImg} alt="shopping-cart"/>
 <p className='relative bottom-4 right-4'>{cart.totalItems}</p>
 
 
