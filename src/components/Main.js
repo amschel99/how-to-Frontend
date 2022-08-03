@@ -25,6 +25,9 @@ const Main = ({products,setProducts}) => {
 const {search}= useSelector((state)=>state.search)
 const {sort}= useSelector((state)=>state.sort)
 const {brand}= useSelector((state)=>state.brand)
+const {ram}= useSelector((state)=>state.ram)
+const {os}= useSelector((state)=>state.os)
+const {disk}= useSelector((state)=>state.disk)
 
 const[pages,setPages]=React.useState()
   const dispatch= useDispatch()
@@ -48,7 +51,10 @@ const response= await axios.get(`https://jyd-shoppers.herokuapp.com/products`,
  sort,
  page:page,
  limit:5,
- brand:brand
+ brand:brand,
+ ram:ram,
+ os:os,
+ disk:disk
   }
 }
 )
@@ -66,7 +72,7 @@ return await response.data.data
 }
 
 
-const{isLoading, isError,isPreviousData,data}= useQuery(["products", search, sort,page,brand],()=> fetchProducts(search, sort,page,brand),{
+const{isLoading, isError,isPreviousData,data}= useQuery(["products", search, sort,page,brand,ram,os,disk],()=> fetchProducts(search, sort,page,brand,ram,os,disk),{
   keepPreviousData:true
 })
 const nextPage= ()=>setPage((prev)=>prev+1)

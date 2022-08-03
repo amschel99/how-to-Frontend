@@ -6,6 +6,9 @@ import {Link} from "react-router-dom"
 import {faPhone} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {sort} from "../feautures/Sort/sortSlice"
+import {ram} from "../feautures/ram/ramSlice"
+import {os} from "../feautures/os/osSlice"
+import {disk} from "../feautures/disk/diskSlice"
 
 
 const Cart = () => {
@@ -21,22 +24,44 @@ const Cart = () => {
 </a>
 
 
-<select  className=' w-10 bg-secondary ml-1 mt-3 '>
+<select  className=' w-10 bg-secondary ml-1 mt-3 '
+onChange={(e)=>{
+
+ return dispatch(ram({ram:e.target.value}))
+
+
+ }}
+>
   <option>ram</option>
-    <option>4gb</option>
-    <option>8gb</option>
+    <option value="4gb">4gb</option>
+    <option value="8gb">8gb</option>
+        <option value="16gb">16gb</option>
 </select>
 
-<select  className=' w-10 bg-secondary ml-1 mt-3'>
+<select  className=' w-10 bg-secondary ml-1 mt-3'
+onChange={(e)=>{
+
+ return dispatch(disk({disk:e.target.value}))
+
+
+ }}
+>
   <option>disk</option>
-    <option>Hdd</option>
-    <option>ssd</option>
+    <option value="hdd">Hdd</option>
+    <option value="ssd">ssd</option>
 </select>
-<select  className=' w-10 bg-secondary m1-1 mt-3 ' >
+<select  className=' w-10 bg-secondary m1-1 mt-3 '
+onChange={(e)=>{
+
+ return dispatch(os({os:e.target.value}))
+
+
+ }}
+ >
   <option>os</option>
-    <option>windows</option>
-    <option>ChromE</option>
-    <option>IOS</option>
+    <option value="windows">windows</option>
+    <option value="chrome">Chrom OS</option>
+    <option  value="mac">IOS</option>
 </select>
 
 
