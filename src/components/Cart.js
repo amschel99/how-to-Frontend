@@ -19,6 +19,33 @@ const Cart = () => {
 <a href="tel:+25477938563" className="flex mt-3"><FontAwesomeIcon icon={faPhone} className="cursor-pointer text-basic "/>
 <p className="mx-2 text-xs">0777938563</p>
 </a>
+
+
+<select  className=' w-12 bg-secondary ml-1 mt-3 '>
+  <option>ram</option>
+    <option>4gb</option>
+    <option>8gb</option>
+</select>
+
+<select  className=' w-12 bg-secondary ml-1 mt-3'>
+  <option>disk</option>
+    <option>Hdd</option>
+    <option>ssd</option>
+</select>
+<select  className=' w-12 bg-secondary m1-1 mt-3 ' >
+  <option>os</option>
+    <option>windows</option>
+    <option>ChromE</option>
+    <option>IOS</option>
+</select>
+
+
+
+
+
+
+
+
 <select
  className=' w-12 bg-secondary mt-3 '
  onChange={(e)=>{
