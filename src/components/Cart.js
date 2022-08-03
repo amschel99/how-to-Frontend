@@ -58,13 +58,11 @@ const Cart = () => {
       <option className='text-xs text-white' >sort</option>
       <option 
      
-      value="price" >sort from lowest to highest price</option>
+      value="price" >Lowest to highest Price </option>
        <option 
        
-       value="-price">sort from highest to lowest price</option>
-       <option 
-       
-       value="rating">sort by rating</option>
+       value="-price"> Highest to lowest price</option>
+    
     </select>
 
 <Link to='/activity' className='flex justify-between mt-3'>
