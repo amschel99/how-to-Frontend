@@ -77,7 +77,7 @@ const{isLoading, isError,isPreviousData,data}= useQuery(["products", search, sor
 })
 const nextPage= ()=>setPage((prev)=>prev+1)
 const prevPage= ()=>setPage((prev)=>prev-1)
-const pagesArray= Array(pages).fill().map((_,i)=>i+1)
+const pagesArray= Array(11).fill().map((_,i)=>i+1)
 const navButtons= (
 <nav>
   <button onClick={prevPage} disabled={isPreviousData || page===1}>
